@@ -1,6 +1,6 @@
-const dboperations = require('./dboperations');
 var Db = require('./dboperations'); 
 var Paises = require('./paises'); 
+const dboperations = require('./dboperations');
 
 var express = require('express'); 
 var bodyParser = require('body-parser');
@@ -20,8 +20,22 @@ router.use((request, response, next) => {
 })
 
 router.route('/paises').get((request, response) => {
-    dboperations.getPiases().then(result => {        
+    dboperations.getPaises().then(result => {        
         response.json(result[0]); 
+    })
+})
+
+router.route('/paises/:id').get((request, response) => {
+    dboperations.getPais(request.params.id).then(result => {        
+        response.json(result[0]); 
+    })
+})
+
+router.route('/paises').post((request, response) => {
+    let pais = {...request.body}
+
+    dboperations.addPais(pais).then(result => {
+        response.status(201).json(result); 
     })
 })
 

@@ -1,10 +1,13 @@
+USE ServiciosWebDB;  
+GO 
+
 create table Usuarios (
 	NombreUsuario varchar(50) not null primary key, 
 	Nombre varchar(50) not null, 
 	PrimerApellido varchar(50) not null, 
 	SegundoApellido varchar(50) not null, 
 	CorreoElectronico nvarchar(100) not null, 
-	Contraseña nvarchar(100) not null, 
+	Contraseï¿½a nvarchar(100) not null, 
 	PreguntaSeguridad varchar(100), 
 	RespuestaSeguridad varchar(100)
 )
@@ -77,7 +80,7 @@ create table Tarjetas (
 	
 	NumTarjeta varchar(100) primary key not null, 
 	mesExp int not null, 
-	añoExp int not null, 
+	aï¿½oExp int not null, 
 	ccv int not null,
 	monto varchar(50) not null,	
 	tipo varchar(50) not null 
@@ -86,6 +89,20 @@ create table Tarjetas (
 create table EasyPay ( 
 	NumCuenta varchar(50) primary key not null, 
 	CodigoSeguridad varchar(50) not null, 
-	Contraseña varchar(50) not null, 
+	Contraseï¿½a varchar(50) not null, 
 	estadoTransaccion varchar(50) not null, 
 ) 
+
+
+ 
+
+CREATE PROCEDURE insertPais  
+    @Codigo int,   
+    @Nombre nvarchar(50), 
+	@ImgPais nvarchar(50) 
+AS   
+
+    
+    INSERT INTO Paises (Codigo, Nombre, ImgPais) 
+	VALUES (@Codigo, @Nombre, @ImgPais) 
+GO 
