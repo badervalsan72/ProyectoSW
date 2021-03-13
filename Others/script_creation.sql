@@ -37,15 +37,11 @@ create table Aeropuertos (
 	CodigoPais int FOREIGN KEY REFERENCES Paises(Codigo) 
 )
 
-create table AeropuertosEsp ( 
-	CodigoEsp int not null primary key, 
-	CodigoAeropuerto int FOREIGN KEY REFERENCES Aeropuertos(Codigo) 
-)
 
 create table Puertas ( 
 	Codigo int not null primary key, 
 	numeroPuerta varchar(50) not null, 
-	CodigoPais int FOREIGN KEY REFERENCES Paises(Codigo), 
+	CodigoAeroPuerto int FOREIGN KEY REFERENCES Aeropuertos(Codigo), 
 	estado bit not null
 	
 ) 
