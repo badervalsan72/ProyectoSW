@@ -1800,3 +1800,51 @@ span.color {
 .alert-danger { 
     float: left;
 }
+
+/* Custom Clases and Id for development  */
+
+.decorator {
+	font-size: large;
+	color: #F4783B;
+}
+
+.decobutton {
+	border: none;
+  	padding: 10px 25px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+  	transition-duration: 0.4s;
+  	cursor: pointer;
+}
+
+.decobutton1{
+	background-color: #f7e2d8; 
+  	color: black; 
+  	border: 2px solid #f8513e;
+}
+
+.decobutton1:hover {
+	background-color: #f8513e;
+  	color: white;
+}
+
+.decobutton2{
+	background-color: #f7e2d8; 
+  	color: black; 
+  	border: 2px solid #f8513e;
+}
+
+.decobutton2:hover {
+	background-color: crimson;
+  	color: white;
+}
+
+textarea {
+	resize: none;
+	width: 550px;
+    height: 300px;
+	border: 2px solid #f8513e;
+ }
