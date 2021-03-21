@@ -10,8 +10,13 @@ create table Usuarios (
 	Contrase�a nvarchar(100) not null, 
 	PreguntaSeguridad varchar(100), 
 	RespuestaSeguridad varchar(100)
+	CodigoRol int FOREIGN KEY REFERENCES Roles(Codigo), 
 )
 
+create table Roles ( 
+	Codigo int primary key not null, 
+	Descripcion varchar(50)
+)
 create table Paises ( 
 	Codigo int not null primary key, 
 	Nombre varchar(50) not null, 
@@ -28,7 +33,7 @@ create table Aerolineas (
 create table AerolineasEsp ( 
 	CodigoEsp int not null primary key, 
 	CodigoAerolinea int FOREIGN KEY REFERENCES Aerolineas(Codigo), 
-	CodigoPais int FOREIGN KEY REFERENCES Paises(Codigo)
+	CodigoAeroPuerto int FOREIGN KEY REFERENCES Aeropuertos(Codigo)
 )
 
 create table Aeropuertos ( 
@@ -48,7 +53,12 @@ create table Puertas (
 
 create table Bitacora (
 	Codigo int not null primary key, 
+	Fecha date not null, 
 	NombreUsuario varchar(50) FOREIGN KEY REFERENCES Usuarios(NombreUsuario), 
+	Tipo  varchar(50) not null, 
+	CodigoRegistro int not null, 
+	Descripcion varchar(100) not null, 
+	RegistroDetalle varchar (100) not null 
 )
 
 create table Vuelos ( 
@@ -90,6 +100,12 @@ create table EasyPay (
 ) 
 
 
+create table Errores ( 
+	NumError int primary key not null, 
+	Fecha date not null, 
+	hora time not null, 
+	Mensaje varchar(100) not null 
+)
  
 
 CREATE PROCEDURE insertPais  
