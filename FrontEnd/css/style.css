@@ -1847,4 +1847,76 @@ textarea {
 	width: 550px;
     height: 300px;
 	border: 2px solid #f8513e;
- }
+}
+
+/* Table design for asignaroles.html */
+
+#roles {
+	font-size: medium;
+	border-collapse: collapse;
+	table-layout: fixed;
+    width: 500px;
+}
+  
+#roles td, #roles th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+  
+#roles tr{background-color: #f2f2f2;}
+  
+  
+#roles th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #F4783B;
+	color: white;
+}
+
+/* Table design for consecutivos.html */
+
+#consecutivos {
+	font-size: medium;
+	border-collapse: collapse;
+	table-layout: fixed;
+    width: 800px;
+	height: 200px;
+	margin: 0 auto;
+}
+  
+#consecutivos td, #consecutivos th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+  
+#consecutivos tr{background-color: #f2f2f2;}
+  
+  
+#consecutivos th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #F4783B;
+	color: white;
+}
+
+#center {
+	text-align: center;
+}
+
+.btnDesign{
+	background-color: #f7e2d8; 
+  	color: black; 
+  	border: 2px solid darkorange;
+}
+
+.btnDesign:hover {
+	background-color: darkorange;
+  	color: white;
+}
+
+.center {
+	margin:0 auto;
+    display:block;
+}

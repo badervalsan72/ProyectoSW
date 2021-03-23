@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>V-Vuelos - Asginar Roles</title>
+<title>V-Vuelos - Consecutivos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="http://webthemez.com" />
@@ -43,7 +43,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="pageTitle">Asignar Roles</h2>
+				<h2 class="pageTitle">Lista Consecutivos</h2>
 			</div>
 		</div>
 	</div>
@@ -70,74 +70,40 @@
 <section id="content">
 	<section class="section-padding">
 		<div class="container">
-			<div class="row showcase-section">
-				<div class="col-md-6">
-					<br>
-					<table id="roles">
-						<tr>
-							<th>Nombre de Usuario</th>
-							<th>Rol Asignado</th>
-						</tr>
-						<tr>
-							<td>Erick Badilla</td>
-							<td>Administrador</td>					
-						</tr>
-						<tr>
-							<td>Luis Brenes</td>
-							<td>Consulta</td>							
-						</tr>
-						<tr>
-							<td>Jose Fonseca</td>
-							<td>Seguridad</td>		
-						</tr>
-					</table>
-				</div>
-				<div class="col-md-6">
-					<div class="about-text">
-						<h3>Lista <span class="color">de Roles</span></h3>
+			<div class="row showcase-section" >				
+				<table id="consecutivos">
+					<tr>
+						<th>Código</th>
+						<th>Descripción</th>
+                        <th>Consecutivo</th>
+                        <th></th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Tarifas</td>
+                        <td>1</td>
+                        <td id="center"><button class="btnDesign">Editar</button></td>					
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Productos y Servicios</td>	
+                        <td>2</td>	
+                        <td id="center"><button class="btnDesign">Editar</button></td>					
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Anuncios</td>	
+                        <td>3</td>
+                        <td id="center"><button class="btnDesign">Editar</button></td>	
+					</tr>
+				</table>
 
-						<!-- Inicio del Formulario  -->
-									
-						<form>
+                <br>
 
-							<div>
-								<input type="checkbox" id="administrador" name="checkboxAdministrador" value="">
-								<label for="administrador" style="font-size: large;" class="decorator">Administrador</label>
-							</div>
-	
-						<br>
-	
-							<div>
-								<input type="checkbox" id="seguridad" name="checkboxSeguridad" value="">
-								<label for="seguridad" style="font-size: large;" class="decorator">Seguridad</label>
-							</div>
-	
-						<br>
-	
-							<div>
-								<input type="checkbox" id="mantenimiento" name="checkboxMantenimiento" value="">
-								<label for="mantenimiento" style="font-size: large;" class="decorator">Mantenimiento</label>
-							 </div>
-	
-						<br>
-	
-							<div>
-								<input type="checkbox" id="consultas" name="checkboxConsultas" value="">
-								<label for="consultas" style="font-size: large;" class="decorator">Consultas</label>
-							</div>
-	
-						<br>
-	
-							<button class="decobutton decobutton1">Actualizar Roles</button>	
-						
-						</form>
+                <button class="decobutton decobutton1 center">Nuevo Consecutivo</button>	
 
-						<!-- Fin del Formulario  -->
-						 
-					</div>
-				</div>
-			</div>
-		</div>
+            </div>
+        </div>
 	</section>						
 </section>
 
@@ -239,6 +205,5 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/animate.js"></script> 
 <script src="js/custom.js"></script>
-
 </body>
 </html>
