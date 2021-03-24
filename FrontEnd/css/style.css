@@ -1931,3 +1931,29 @@ textarea {
 	display: block;
 	width: 560px;
 }
+
+/* Table design for paises.html */
+#paises {
+	font-size: medium;
+	border-collapse: collapse;
+	table-layout: fixed;
+    width: 600px;
+	height: 200px;
+	margin: 0 auto;
+}
+  
+#paises td, #paises th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+  
+#paises tr{background-color: #f2f2f2;}
+  
+  
+#paises th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #F4783B;
+	color: white;
+}
