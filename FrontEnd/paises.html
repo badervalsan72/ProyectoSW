@@ -84,43 +84,58 @@
 							<td>Consecutivo</td>
 							<td>Costa Rica</td>
 							<td>costarica.png</td>
-							<td id="center"><a href="editarconsecutivo.html"><button class="btnDesign">Editar</button></a></td>						
+							<td id="center"><a href="#"><button class="btnDesign">Editar</button></a></td>						
 						</tr>
 						<tr>
 							<td>Consecutivo</td>
 							<td>España</td>	
 							<td>españa.png</td>	
-							<td id="center"><a href="editarconsecutivo.html"><button class="btnDesign">Editar</button></a></td>						
+							<td id="center"><a href="#"><button class="btnDesign">Editar</button></a></td>						
 						</tr>
 						<tr>
 							<td>Consecutivo</td>
 							<td>Mexico</td>	
 							<td>mexico.png</td>
-							<td id="center"><a href="editarconsecutivo.html"><button class="btnDesign">Editar</button></a></td>	
+							<td id="center"><a href="#"><button class="btnDesign">Editar</button></a></td>	
 						</tr>
 					</table>
 				</div>	
 
 				<div class="col-lg-5">
 					<h3> Formulario añadir <span class="color">País</span></h3>
-
+                
                     <!-- Inicio del Formulario  -->
-
+                
                     <label for="pais" class="decorator">Nombre del País</label>
                     <input type="text" name="pais" id="pais">
-
+                
                     <br>
-
-					<textarea name="imagen" id="imagen" cols="30" rows="10" readonly></textarea>	
+                
+					<textarea id="imagen" name="imagen" id="imagen" cols="30" rows="10" readonly></textarea>	
                     <button class="decobutton decobutton2">Cargar Imagen</button>
                     <button class="decobutton decobutton1">Agregar País</button>
-
+                    <button class="decobutton decobutton2" onclick="limpiarCampos()">Limpiar</button>
+                
                     <!-- Fin del Formulario  -->
+                
 				</div>
             </div>
         </div>
 	</section>						
 </section>
+
+<!-- JavaScript for Button Limpiar -->
+
+<script>
+
+    function limpiarCampos(){
+        document.getElementById("pais").value = "";
+        document.getElementById("imagen").value = "";
+    }
+
+</script>
+
+<!-- End JavaScript for Button Limpiar -->
 
 	<!-- End of the Content Page -->
 	
