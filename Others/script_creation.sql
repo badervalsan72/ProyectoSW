@@ -14,7 +14,8 @@ drop table Aerolineas
 drop table Paises 
 drop table Usuarios
 drop table Roles 
-
+drop table errores
+drop table consecutivos
 */
 
 create table Consecutivos (

@@ -40,7 +40,7 @@ router.route('/paises').post((request, response) => {
     })
 })
 
-router.route('/api/Usuarios/validarUsuario').post((request, response) => {
+router.route('/Usuarios/validarUsuario').post((request, response) => {
 
     UsuariosOps.validarUsuario(request.body.username).then(result => {
 
@@ -51,4 +51,4 @@ router.route('/api/Usuarios/validarUsuario').post((request, response) => {
 
 var port = process.env.PORT || 8090;
 app.listen(port);
-console.log('Paises API is running at ' + port);
+console.log('backend API is running at ' + port);

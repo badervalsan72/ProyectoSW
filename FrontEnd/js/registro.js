@@ -21,9 +21,10 @@ async function registrarse() {
         }
     }
     await axios(config).then(value => {
-        console.log('testtttttttttt');
+        console.log('REGISTRO00000000000000000000000');
         console.log(value.data);
         if (value.data.cantusers > 0) {
+
             alert('Usuario existente.');
 
         } else {

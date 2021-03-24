@@ -50,7 +50,7 @@ async function addUsuario(usuario) {
 }
 
 async function validarUsuario(username) {
-    console.log('validando usuario.'); 
+    console.log('validando usuario.');
     try {
 
         let conn = await sql.connect(config);
@@ -58,7 +58,7 @@ async function validarUsuario(username) {
             .input('username', sql.VarChar, username)
             .query('SELECT COUNT(*) AS CANTUSERS FROM USUARIOS WHERE NombreUsuario = @username');
 
-        let result = validarUser.recordsets
+        let result = validarUser.recordset[0].CANTUSERS
         console.log(result)
         return result
 
