@@ -1,5 +1,6 @@
 var Paises = require('./models/Paises');
 const paisesOps = require('./operations/PaisesOps');
+const UsuariosOps = require('./operations/UsuariosOps')
 
 
 var express = require('express');
@@ -39,13 +40,6 @@ router.route('/paises').post((request, response) => {
     })
 })
 
-var port = process.env.PORT || 8090;
-app.listen(port);
-console.log('Paises API is running at ' + port);
-
-
-
-
 router.route('/api/Usuarios/validarUsuario').post((request, response) => {
 
     UsuariosOps.validarUsuario(request.body.username).then(result => {
@@ -54,3 +48,7 @@ router.route('/api/Usuarios/validarUsuario').post((request, response) => {
 
     }).catch((err) => { console.log(err) })
 })
+
+var port = process.env.PORT || 8090;
+app.listen(port);
+console.log('Paises API is running at ' + port);
