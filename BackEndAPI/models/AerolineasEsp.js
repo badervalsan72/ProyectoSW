@@ -1,8 +1,8 @@
 class AerolineasEsp {
-    constructor(Codigo, CodigoAerolinea, CodigoPais) {
-        this.Codigo = Codigo;
+    constructor(CodigoEsp, CodigoAerolinea, CodigoAeroPuerto) {
+        this.CodigoEsp = CodigoEsp;
         this.CodigoAerolinea = CodigoAerolinea;
-        this.CodigoPais = CodigoPais;
+        this.CodigoAeroPuerto = CodigoAeroPuerto;
     }
 }
 

@@ -1,6 +1,30 @@
 USE ServiciosWebDB;  
 GO 
 
+/*
+drop table EasyPay
+drop table Tarjetas 
+drop table Boletos 
+drop table Vuelos 
+drop table Bitacora 
+drop table Puertas 
+drop table AerolineasEsp
+drop table Aeropuertos 
+drop table Aerolineas 
+drop table Paises 
+drop table Usuarios
+drop table Roles 
+
+*/
+
+create table Consecutivos (
+	Descripcion varchar(100) not null,
+	Consecutivo varchar(100) not null,
+	Prefijo varchar(100),
+	RangoInicial int,
+	RangoFinal int
+)
+
 create table Roles ( 
 	Codigo int primary key not null, 
 	Descripcion varchar(50)
@@ -13,9 +37,7 @@ create table Usuarios (
 	SegundoApellido varchar(50) not null, 
 	CorreoElectronico nvarchar(100) not null, 
 	Contraseña nvarchar(100) not null, 
-	PreguntaSeguridad varchar(100), 
-	RespuestaSeguridad varchar(100),
-	CodigoRol int FOREIGN KEY REFERENCES Roles(Codigo), 
+	CodigoRol int FOREIGN KEY REFERENCES Roles(Codigo)
 )
 
 create table Paises ( 
@@ -108,13 +130,20 @@ create table Errores (
 )
  
 
-CREATE PROCEDURE insertPais  
-    @Codigo int,   
-    @Nombre nvarchar(50), 
-	@ImgPais nvarchar(50) 
-AS   
 
-    
-    INSERT INTO Paises (Codigo, Nombre, ImgPais) 
-	VALUES (@Codigo, @Nombre, @ImgPais) 
-GO 
+INSERT INTO Roles 
+VALUES (1, 'Administrador')
+
+INSERT INTO Roles 
+VALUES (2, 'Seguridad')
+
+INSERT INTO Roles 
+VALUES (3, 'Consecutivo')
+
+INSERT INTO Roles 
+VALUES (4, 'Mantenimiento')
+
+INSERT INTO Roles 
+VALUES (5, 'Consulta')
+
+

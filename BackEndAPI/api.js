@@ -1,6 +1,6 @@
-var Db = require('./dboperations');
 var Paises = require('./models/Paises');
-const dboperations = require('./dboperations');
+const paisesOps = require('./operations/PaisesOps');
+
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -20,13 +20,13 @@ router.use((request, response, next) => {
 })
 
 router.route('/paises').get((request, response) => {
-    dboperations.getPaises().then(result => {
+    paisesOps.getPaises().then(result => {
         response.json(result[0]);
     })
 })
 
 router.route('/paises/:id').get((request, response) => {
-    dboperations.getPais(request.params.id).then(result => {
+    paisesOps.getPais(request.params.id).then(result => {
         response.json(result[0]);
     })
 })
@@ -34,7 +34,7 @@ router.route('/paises/:id').get((request, response) => {
 router.route('/paises').post((request, response) => {
     let pais = {...request.body }
 
-    dboperations.addPais(pais).then(result => {
+    paisesOps.addPais(pais).then(result => {
         response.status(201).json(result);
     })
 })
@@ -42,3 +42,15 @@ router.route('/paises').post((request, response) => {
 var port = process.env.PORT || 8090;
 app.listen(port);
 console.log('Paises API is running at ' + port);
+
+
+
+
+router.route('/api/Usuarios/validarUsuario').post((request, response) => {
+
+    UsuariosOps.validarUsuario(request.body.username).then(result => {
+
+        response.json(result)
+
+    }).catch((err) => { console.log(err) })
+})

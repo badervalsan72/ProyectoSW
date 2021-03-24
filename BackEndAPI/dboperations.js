@@ -35,7 +35,6 @@ async function addPais(pais) {
             .input('Codigo', sql.Int, pais.Codigo)
             .input('Nombre', sql.VarChar, pais.Nombre)
             .input('ImgPais', sql.VarChar, pais.ImgPais)            
-            // .execute('insertPais');
             .query('INSERT INTO Paises VALUES (@Codigo, @Nombre, @ImgPais)')        
         return insertPais.recordsets
     }
