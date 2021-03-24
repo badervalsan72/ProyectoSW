@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>V-Vuelos - Consecutivos</title>
+<title>V-Vuelos - Crear Consecutivos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="http://webthemez.com" />
@@ -43,7 +43,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="pageTitle">Lista Consecutivos</h2>
+				<h2 class="pageTitle">Crear Consecutivos</h2>
 			</div>
 		</div>
 	</div>
@@ -71,44 +71,90 @@
 	<section class="section-padding">
 		<div class="container">
 			<div class="row showcase-section">
-				<div class="col-lg-9">			
-					<table id="consecutivos">
-						<tr>
-							<th>Código</th>
-							<th>Descripción</th>
-							<th>Consecutivo</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Tarifas</td>
-							<td>1</td>
-							<td id="center"><a href="editarconsecutivo.html"><button class="btnDesign">Editar</button></a></td>						
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Productos y Servicios</td>	
-							<td>2</td>	
-							<td id="center"><a href="editarconsecutivo.html"><button class="btnDesign">Editar</button></a></td>						
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Anuncios</td>	
-							<td>3</td>
-							<td id="center"><a href="editarconsecutivo.html"><button class="btnDesign">Editar</button></a></td>	
-						</tr>
-					</table>
-				</div>	
+				<div class="col-lg-6">
 
-				<div class="col-lg-3">
-					<h3>Crear <span class="color">Consecutivo</span></h3>
-					<a href="crearconsecutivo.html"><button class="decobutton decobutton1">Nuevo Consecutivo</button></a>			
-				</div>
-    
+                    <!-- Inicio del Formulario  -->
+
+                    <form>
+                        <div>
+                            <label for="descripcion" class="decorator">Descripción</label>
+                            <select id="displaySelect" id="descripcion" name="descripcion">
+                                <option value="paises">Países</option>
+                                <option value="aerolineas">Aerolíneas</option>
+                                <option value="puertas">Puertas del Aeropuerto</option>
+                                <option value="compraBoletos">Compra de Boletos</option>
+                                <option value="reservaBoletos">Reserva de Boletos</option>
+                                <option value="vuelos">Vuelos</option>
+                            </select>
+                        </div>
+                    <br>
+                        <div>
+                            <label class="decorator">Consecutivo</label>
+                            <input type="text" name="" id="">   
+                        </div>
+                    <br>
+                        <div>
+                            <input type="checkbox" id="prefijo" name="checkboxPrefijo" value="" onclick="Prefijo()">
+                            <label for="prefijo" style="font-size: large;" class="decorator">Posee Prefijo</label>
+                            <input type="text" name="lblPrefijo" id="lblPrefijo" disabled>       
+                        </div>
+                    <br>
+                        <div>
+                            <input type="checkbox" id="rango" name="checkboxRango" value="" onclick="Rango()">
+                            <label for="rango" style="font-size: large;" class="decorator">Posee Rango</label>   
+                        </div>
+                    <br>
+                        <div>
+                            <label class="decorator1 center" for="lblRangoInicial">Rango Inicial</label>
+                            <input type="text" name="lblRangoInicial" id="lblRangoInicial" disabled>
+                        </div>
+                    <br>
+                        <div>
+                            <label class="decorator1 center" for="lblRangoFinal">Rango Final</label>
+                            <input type="text" name="lblRangoFinal" id="lblRangoFinal" disabled>  
+                        </div>
+                    <br>
+                        <div class="center">
+                            <button class="decobutton decobutton1">Crear Nuevo Consecutivo</button>
+                        </div>
+                    </form>
+
+                    <!-- Fin del Formulario  -->
+
+				</div>	
             </div>
         </div>
 	</section>						
 </section>
+
+<!-- JavaScript for the CheckBoxes -->
+
+<script>
+    function Prefijo(){
+
+       var check = document.getElementById("prefijo");
+
+       if(check.checked == true){
+        document.getElementById("lblPrefijo").disabled = false;
+       } else {
+        document.getElementById("lblPrefijo").disabled = true;
+       }
+    }
+
+    function Rango(){
+        var check = document.getElementById("rango");
+
+        if(check.checked == true){
+        document.getElementById("lblRangoInicial").disabled = false;
+        document.getElementById("lblRangoFinal").disabled = false;
+       } else {
+        document.getElementById("lblRangoInicial").disabled = true;
+        document.getElementById("lblRangoFinal").disabled = true;
+       }
+    }
+</script>
+
+<!-- End JavaScript for the CheckBoxes -->
 
 	<!-- End of the Content Page -->
 	

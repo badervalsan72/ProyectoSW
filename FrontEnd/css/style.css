@@ -1808,6 +1808,12 @@ span.color {
 	color: #F4783B;
 }
 
+.decorator1 {
+	font-size: medium;
+	color: #F4783B;
+}
+
+
 .decobutton {
 	border: none;
   	padding: 10px 25px;
@@ -1919,4 +1925,9 @@ textarea {
 .center {
 	margin:0 auto;
     display:block;
+}
+
+#displaySelect {
+	display: block;
+	width: 560px;
 }
