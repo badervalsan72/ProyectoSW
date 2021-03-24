@@ -45,6 +45,8 @@ router.route('/Usuarios/validarUsuario').post((request, response) => {
     UsuariosOps.validarUsuario(request.body.username).then(result => {
 
         response.json(result)
+            //Prueba para ver si llega aqui
+        console.log("validacionUsuario Realizada.");
 
     }).catch((err) => { console.log(err) })
 })
