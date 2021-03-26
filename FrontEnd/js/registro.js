@@ -15,11 +15,14 @@ const postUsuario = function(TheUrl, nombreUsuario) {
         body: contenido,
 
     };
-
+    let resulted = '+_+'; 
+    
     fetch(TheUrl, requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        .then(result => resulted = result  
+        .catch(error => console.log('error', error)))
+
+    alert('resulted: ' + resulted); 
 }
 
 async function registrarse() {
@@ -38,7 +41,7 @@ async function registrarse() {
         url: 'http://localhost:8090/api/Usuarios/validarUsuario',
         //url: validarUsuariosUrl,
         data: {
-            username: username
+            "username": username
         }
     }
 
@@ -61,5 +64,5 @@ async function registrarse() {
         }
     }).catch(err => { console.log(err) })*/
 
-    postUsuario(validarUsuariosUrl, username);
+    postUsuario('http://localhost:8090/api/Usuarios/validarUsuario', username);
 }

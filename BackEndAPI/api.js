@@ -1,7 +1,7 @@
 var Paises = require('./models/Paises');
 const paisesOps = require('./operations/PaisesOps');
 const UsuariosOps = require('./operations/UsuariosOps')
-
+const RolesOps = require('./operations/RolesOps')
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -49,6 +49,19 @@ router.route('/Usuarios/validarUsuario').post((request, response) => {
         console.log("validacionUsuario Realizada.");
 
     }).catch((err) => { console.log(err) })
+})
+
+
+router.route('/Usuarios').get((request, response) => {
+    UsuariosOps.getUsuarios().then(result => {
+        response.json(result[0]);
+    })
+})
+
+router.route('/Roles').get((request, response) => {
+    RolesOps.getRoles().then(result => {
+        response.json(result[0]);
+    })
 })
 
 var port = process.env.PORT || 8090;
