@@ -1,7 +1,7 @@
-var axios = require('axios')
-const { get } = require('https')
+// var axios = require('axios')
+// const { get } = require('https')
 
-const postUsuario = function(TheUrl, nombreUsuario) {
+const postUsuario = async function(TheUrl, nombreUsuario) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -15,12 +15,10 @@ const postUsuario = function(TheUrl, nombreUsuario) {
         body: contenido,
 
     };
-    let resulted = '+_+'; 
-    
-    fetch(TheUrl, requestOptions)
+    let resulted = await fetch(TheUrl, requestOptions)
         .then(response => response.text())
-        .then(result => resulted = result  
-        .catch(error => console.log('error', error)))
+        .then(result => response.JSON()) 
+        .catch(error => console.log('error', error))
 
     alert('resulted: ' + resulted); 
 }
@@ -34,21 +32,8 @@ async function registrarse() {
     let passwd = document.getElementById('passwd').value;
     let rol = 5;
 
-    console.log('REGISTRO');
-
-    const config = {
-        method: 'post',
-        url: 'http://localhost:8090/api/Usuarios/validarUsuario',
-        //url: validarUsuariosUrl,
-        data: {
-            "username": username
-        }
-    }
-
-    console.log("username: " + username);
-
-    console.log("config: " + config);
-
+    
+    console.log('username: ' + username); 
     //REVISAR POR QUE ES COMO SI LA CONSULTA DE AXIOS(CONFIG) NUNCA SE COMPLETARA
 
     /*await axios(config).then(value => {
