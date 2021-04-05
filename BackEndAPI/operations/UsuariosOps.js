@@ -27,17 +27,17 @@ async function getUsuario(codigoUsuario) {
 
 
 async function addUsuario(username, nombre, apellido1, apellido2, email, passwd, rol) {
-    console.log(username, nombre, apellido1, apellido2, email, passwd, rol); 
-    
+    console.log(username, nombre, apellido1, apellido2, email, passwd, rol);
+
     try {
         let pool = await sql.connect(config);
         let insertUsuarios = await pool.request()
-            .input('NombreUsuario', sql.VarChar,username)
+            .input('NombreUsuario', sql.VarChar, username)
             .input('Nombre', sql.VarChar, nombre)
             .input('PrimerApellido', sql.VarChar, apellido1)
-            .input('SegundoApellido', sql.VarChar,apellido2)
-            .input('CorreoElectronico', sql.NVarChar,email)
-            .input('Contraseña', sql.NVarChar,passwd)
+            .input('SegundoApellido', sql.VarChar, apellido2)
+            .input('CorreoElectronico', sql.NVarChar, email)
+            .input('Contraseña', sql.NVarChar, passwd)
             .input('CodigoRol', sql.Int, rol)
             .query('INSERT INTO Usuarios VALUES (@NombreUsuario, @Nombre, @PrimerApellido,@SegundoApellido, @CorreoElectronico, @Contraseña, @CodigoRol)');
         return insertUsuarios.recordsets
@@ -71,9 +71,31 @@ async function validarUsuario(username, email) {
 
 }
 
+async function validarUsuarioLogin(email, passwd) {
+    console.log('loggeando usuario.');
+    try {
+
+        let conn = await sql.connect(config);
+        console.log("[FROM USUARIOOPS] email: " + email + " password: " + passwd)
+        let loggear = await conn.request()
+            .input('email', sql.VarChar, email)
+            .input('password', sql.VarChar, passwd)
+            .query('SELECT COUNT(*) AS CANTUSERS FROM USUARIOS WHERE CorreoElectronico = @email AND Contraseña = @password');
+
+        let result = loggear.recordset[0].CANTUSERS
+        console.log('results from UsuariosOps: ' + result);
+        return result
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
 module.exports = {
     getUsuarios: getUsuarios,
     getUsuario: getUsuario,
     addUsuario: addUsuario,
-    validarUsuario: validarUsuario
+    validarUsuario: validarUsuario,
+    validarUsuarioLogin: validarUsuarioLogin
 }

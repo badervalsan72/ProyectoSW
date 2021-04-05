@@ -1,7 +1,8 @@
 var Paises = require('./models/Paises');
 const paisesOps = require('./operations/PaisesOps');
-const UsuariosOps = require('./operations/UsuariosOps')
-const RolesOps = require('./operations/RolesOps')
+const UsuariosOps = require('./operations/UsuariosOps');
+const RolesOps = require('./operations/RolesOps');
+
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -9,13 +10,30 @@ var cors = require('cors');
 const { response } = require('express');
 var app = express();
 var router = express.Router();
+const session = require('express-session');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', router);
+app.use(session({ secret: 'secret' })); //No me queda muy claro esto
 
-router.use((request, response, next) => {    
+/******SESIONES*******/
+var sess; //ESTO NO FUNCIONA CON MULTIPLES USUARIOS
+
+app.route('/').get(function(req, res) {
+    sess = req.session;
+    sess.email;
+    sess.username;
+});
+
+app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: true }));
+
+
+
+/*****SESIONES*******/
+
+router.use((request, response, next) => {
     next();
 })
 
@@ -55,7 +73,17 @@ router.route('/Usuarios/agregarUsuario').post((request, response) => {
 
         response.json(result)
             //Prueba para ver si llega aqui
-        console.log("Nuevo usuario creado.");
+
+
+    }).catch((err) => { console.log(err) })
+})
+
+router.route('/Usuarios/validarUsuarioLogin').post((request, response) => {
+    UsuariosOps.validarUsuarioLogin(request.body.email, request.body.password).then(result => {
+
+        response.json(result)
+            //Prueba para ver si llega aqui
+
 
     }).catch((err) => { console.log(err) })
 })
