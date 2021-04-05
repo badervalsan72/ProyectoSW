@@ -41,7 +41,7 @@ router.route('/paises').post((request, response) => {
 
 router.route('/Usuarios/validarUsuario').post((request, response) => {
 
-    UsuariosOps.validarUsuario(request.body.username).then(result => {
+    UsuariosOps.validarUsuario(request.body.username, request.body.email).then(result => {
 
         response.json(result)
             //Prueba para ver si llega aqui
@@ -50,6 +50,15 @@ router.route('/Usuarios/validarUsuario').post((request, response) => {
     }).catch((err) => { console.log(err) })
 })
 
+router.route('/Usuarios/agregarUsuario').post((request, response) => {
+    UsuariosOps.addUsuario(request.body.username, request.body.nombre, request.body.apellido1, request.body.apellido2, request.body.email, request.body.passwd, request.body.rol).then(result => {
+
+        response.json(result)
+            //Prueba para ver si llega aqui
+        console.log("Nuevo usuario creado.");
+
+    }).catch((err) => { console.log(err) })
+})
 
 router.route('/Usuarios').get((request, response) => {
     UsuariosOps.getUsuarios().then(result => {

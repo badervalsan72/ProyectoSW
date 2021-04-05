@@ -26,20 +26,20 @@ async function getUsuario(codigoUsuario) {
 }
 
 
-async function addUsuario(usuario) {
+async function addUsuario(username, nombre, apellido1, apellido2, email, passwd, rol) {
+    console.log(username, nombre, apellido1, apellido2, email, passwd, rol); 
+    
     try {
         let pool = await sql.connect(config);
         let insertUsuarios = await pool.request()
-            .input('NombreUsuario', sql.VarChar, usuario.NombreUsuario)
-            .input('Nombre', sql.VarChar, usuario.Nombre)
-            .input('PrimerApellido', sql.VarChar, usuario.PrimerApellido)
-            .input('SegundoApellido', sql.VarChar, usuario.SegundoApellido)
-            .input('CorreoElectronico', sql.NVarChar, usuario.CorreoElectronico)
-            .input('Contraseña', sql.NVarChar, usuario.Contraseña)
-            .input('PreguntaSeguridad', sql.VarChar, usuario.PreguntaSeguridad)
-            .input('RespuestaSeguridad', sql.VarChar, usuario.RespuestaSeguridad)
-            .input('CodigoRol', sql.Int, usuario.CodigoRol)
-            .query('INSERT INTO Usuarios VALUES (@NombreUsuario, @Nombre, @PrimerApellido,@SegundoApellido, @CorreoElectronico, @Contraseña, @PreguntaSeguridad, @RespuestaSeguridad, @CodigoRol');
+            .input('NombreUsuario', sql.VarChar,username)
+            .input('Nombre', sql.VarChar, nombre)
+            .input('PrimerApellido', sql.VarChar, apellido1)
+            .input('SegundoApellido', sql.VarChar,apellido2)
+            .input('CorreoElectronico', sql.NVarChar,email)
+            .input('Contraseña', sql.NVarChar,passwd)
+            .input('CodigoRol', sql.Int, rol)
+            .query('INSERT INTO Usuarios VALUES (@NombreUsuario, @Nombre, @PrimerApellido,@SegundoApellido, @CorreoElectronico, @Contraseña, @CodigoRol)');
         return insertUsuarios.recordsets
     } catch (err) {
 
@@ -49,17 +49,20 @@ async function addUsuario(usuario) {
 
 }
 
-async function validarUsuario(username) {
+async function validarUsuario(username, email) {
     console.log('validando usuario.');
     try {
 
         let conn = await sql.connect(config);
-        let validarUser = await conn.request()
+        let validar = await conn.request()
             .input('username', sql.VarChar, username)
-            .query('SELECT COUNT(*) AS CANTUSERS FROM USUARIOS WHERE NombreUsuario = @username');
+            .input('email', sql.VarChar, email)
+            .query('SELECT COUNT(*) AS CANTUSERS FROM USUARIOS WHERE NombreUsuario = @username OR CorreoElectronico = @email');
 
-        let result = validarUser.recordset[0].CANTUSERS
-        console.log(result)
+        let result = validar.recordset[0].CANTUSERS
+        console.log("username: " + username)
+        console.log("email: " + email)
+        console.log("Result: " + result)
         return result
 
     } catch (error) {
