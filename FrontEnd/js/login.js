@@ -36,6 +36,8 @@ async function loginUser() {
 
     if (result > 0) {
         alert("LOG INNNNNNN");
+        sessionStorage.setItem('email', email)
+        window.location =  '/Frontend/index.html'; 
 
     } else {
         alert('Usuario o contraseña invalidos.');
