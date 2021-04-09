@@ -27,7 +27,7 @@ async function getUsuario(codigoUsuario) {
 
 
 async function addUsuario(username, nombre, apellido1, apellido2, email, passwd, rol) {
-    console.log(username, nombre, apellido1, apellido2, email, passwd, rol);
+
 
     try {
         let pool = await sql.connect(config);
@@ -50,7 +50,7 @@ async function addUsuario(username, nombre, apellido1, apellido2, email, passwd,
 }
 
 async function validarUsuario(username, email) {
-    console.log('validando usuario.');
+
     try {
 
         let conn = await sql.connect(config);
@@ -60,10 +60,8 @@ async function validarUsuario(username, email) {
             .query('SELECT COUNT(*) AS CANTUSERS FROM USUARIOS WHERE NombreUsuario = @username OR CorreoElectronico = @email');
 
         let result = validar.recordset[0].CANTUSERS
-        console.log("username: " + username)
-        console.log("email: " + email)
-        console.log("Result: " + result)
-        return result
+
+        return result;
 
     } catch (error) {
         console.log(error)
@@ -72,18 +70,18 @@ async function validarUsuario(username, email) {
 }
 
 async function validarUsuarioLogin(email, passwd) {
-    console.log('loggeando usuario.');
+
     try {
 
         let conn = await sql.connect(config);
-        console.log("[FROM USUARIOOPS] email: " + email + " password: " + passwd)
+
         let loggear = await conn.request()
             .input('email', sql.VarChar, email)
             .input('password', sql.VarChar, passwd)
             .query('SELECT COUNT(*) AS CANTUSERS FROM USUARIOS WHERE CorreoElectronico = @email AND Contraseña = @password');
 
-        let result = loggear.recordset[0].CANTUSERS
-        console.log('results from UsuariosOps: ' + result);
+        let result = loggear.recordset[0].CANTUSERS;
+
         return result
 
     } catch (error) {
@@ -92,10 +90,30 @@ async function validarUsuarioLogin(email, passwd) {
 
 }
 
+async function getRolUsuario(email) {
+
+    try {
+        let conn = await sql.connect(config);
+
+        let sacarRol = await conn.request()
+            .input('email', sql.VarChar, email)
+            .query('SELECT CODIGOROL FROM USUARIOS WHERE CorreoElectronico = @email');
+
+        let result = sacarRol.recordset[0].CODIGOROL
+
+        return result
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 module.exports = {
     getUsuarios: getUsuarios,
     getUsuario: getUsuario,
     addUsuario: addUsuario,
     validarUsuario: validarUsuario,
-    validarUsuarioLogin: validarUsuarioLogin
+    validarUsuarioLogin: validarUsuarioLogin,
+    getRolUsuario: getRolUsuario
 }

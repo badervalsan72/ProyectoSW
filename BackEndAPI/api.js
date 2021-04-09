@@ -63,7 +63,7 @@ router.route('/Usuarios/validarUsuario').post((request, response) => {
 
         response.json(result)
             //Prueba para ver si llega aqui
-        console.log("validacionUsuario Realizada.");
+
 
     }).catch((err) => { console.log(err) })
 })
@@ -83,6 +83,16 @@ router.route('/Usuarios/validarUsuarioLogin').post((request, response) => {
 
         response.json(result)
             //Prueba para ver si llega aqui
+
+
+    }).catch((err) => { console.log(err) })
+})
+
+router.route('/Usuarios/getRolUsuario').post((request, response) => {
+    UsuariosOps.getRolUsuario(request.body.email).then(result => {
+
+        response.json(result)
+
 
 
     }).catch((err) => { console.log(err) })

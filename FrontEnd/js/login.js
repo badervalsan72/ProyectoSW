@@ -34,8 +34,7 @@ async function loginUser() {
 
 
 
-    if (result > 0) {
-        alert("LOG INNNNNNN");
+    if (result > 0) {        
         sessionStorage.setItem('email', email)
         window.location =  '/Frontend/index.html'; 
 
