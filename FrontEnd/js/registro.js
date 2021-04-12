@@ -7,9 +7,13 @@ const postUsuario = async function(TheUrl, nombreUsuario, email) { //CAMBIAR NOM
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
+    let encryptedUser = CryptoJS.AES.encrypt(nombreUsuario, "password"); //contraseña = "password"
+    let encrypterEmail = CryptoJS.AES.encrypt(email, "password");;
+
+
     var contenido = JSON.stringify({
-        "username": nombreUsuario,
-        "email": email
+        "username": encryptedUser,
+        "email": encrypterEmail
     });
 
     var requestOptions = {
@@ -47,13 +51,21 @@ async function registrarse() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
+        let encryptedName = CryptoJS.AES.encrypt(nombre, "password");
+        let encryptedUser = CryptoJS.AES.encrypt(username, "password"); //contraseña = "password"
+        let encryptedApellido1 = CryptoJS.AES.encrypt(apellido1, "password");
+        let encryptedApellido2 = CryptoJS.AES.encrypt(apellido2, "password");
+        let encryptedEmail = CryptoJS.AES.encrypt(email, "password");
+        let encryptedPass = CryptoJS.AES.encrypt(passwd, "password");
+
+
         var contenido = JSON.stringify({
-            "username": username,
-            "nombre": nombre,
-            "apellido1": apellido1,
-            "apellido2": apellido2,
-            "email": email,
-            "passwd": passwd,
+            "username": encryptedUser,
+            "nombre": encryptedName,
+            "apellido1": encryptedApellido1,
+            "apellido2": encryptedApellido2,
+            "email": encryptedEmail,
+            "passwd": encryptedPass,
             "rol": rol
 
         });
