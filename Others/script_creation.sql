@@ -19,9 +19,11 @@ drop table consecutivos
 */
 
 create table Consecutivos (
+	ConsecutivoID int primary key not null, 
 	Descripcion varchar(100) not null,
-	Consecutivo varchar(100) not null,
+	PoseePrefijo bit not null, 
 	Prefijo varchar(100),
+	PoseeRango bit not null, 
 	RangoInicial int,
 	RangoFinal int
 )

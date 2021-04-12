@@ -29,7 +29,7 @@ async function iniciar() {
     if (sessionStorage.getItem('email') == null) {
 
         // nueva sesion sin usuario 
-        $("#DivContent").load("Navbars/NavBarAdministrador.html");
+        $("#DivContent").load("Navbars/NavBarGeneral.html");
 
 
     }
@@ -46,6 +46,7 @@ async function iniciar() {
                 break;
 
             case '2': // Seguridad
+                $("#DivContent").load("Navbars/NavBarSeguridad.html");
                 break;
 
             case '3': // Consecutivo 
@@ -55,6 +56,7 @@ async function iniciar() {
                 break;
 
             case '5': // Consulta 
+                $("#DivContent").load("Navbars/NavBarConsulta.html");
                 break;
 
             default:
