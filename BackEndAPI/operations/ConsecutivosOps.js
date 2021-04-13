@@ -24,15 +24,75 @@ async function getConsecutivo(codigoConsecutivo) {
     }
 }
 
-async function addConsecutivo(consecutivo) {
+async function addConsecutivo1(consecutivo) {
     try {
         let pool = await sql.connect(config);
         let insertConsecutivo = await pool.request()
-            .input('NumCuenta', sql.VarChar, consecutivo.Codigo)
-            .input('CodigoSeguridad', sql.VarChar, consecutivo.CodigoSeguridad)
-            .input('Contraseña', sql.Varchar, consecutivo.Contraseña)
-            .input('estadoTransaccion', sql.Varchar, consecutivo.estadoTransaccion)
-            .query('INSERT INTO Consecutivos VALUES (@NumCuenta, @CodigoSeguridad, @Contraseña, @estadoTransaccion)');
+            .input('ConsecutivoID', sql.Int, consecutivo.ConsecutivoID)
+            .input('Descripcion', sql.VarChar, consecutivo.Descripcion)
+            .input('PoseePrefijo', sql.Varchar, consecutivo.PoseePrefijo)
+            .input('Prefijo', sql.Varchar, consecutivo.Prefijo)
+            .input('PoseeRango', sql.Varchar, consecutivo.PoseeRango)
+            .input('RangoInicial', sql.Varchar, consecutivo.RangoInicial)
+            .input('RangoFinal', sql.Varchar, consecutivo.RangoFinal)
+            .query('INSERT INTO Consecutivos VALUES (@ConsecutivoID, @Descripcion, @PoseePrefijo, @Prefijo, @PoseeRango, @RangoInicial, @RangoFinal)');
+        return insertConsecutivo.recordsets
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+async function addConsecutivo2(consecutivo) {
+    try {
+        let pool = await sql.connect(config);
+        let insertConsecutivo = await pool.request()
+            .input('ConsecutivoID', sql.Int, consecutivo.ConsecutivoID)
+            .input('Descripcion', sql.VarChar, consecutivo.Descripcion)
+            .input('PoseePrefijo', sql.Varchar, consecutivo.PoseePrefijo)
+            .input('Prefijo', sql.Varchar, consecutivo.Prefijo)
+            .input('PoseeRango', sql.Varchar, consecutivo.PoseeRango)
+            .input('RangoInicial', sql.Varchar, consecutivo.RangoInicial)
+            .input('RangoFinal', sql.Varchar, consecutivo.RangoFinal)
+            .query('INSERT INTO Consecutivos VALUES (@ConsecutivoID, @Descripcion, @PoseePrefijo, @Prefijo, @PoseeRango, @RangoInicial, @RangoFinal)');
+        return insertConsecutivo.recordsets
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+async function addConsecutivo3(consecutivo) {
+    try {
+        let pool = await sql.connect(config);
+        let insertConsecutivo = await pool.request()
+            .input('ConsecutivoID', sql.Int, consecutivo.ConsecutivoID)
+            .input('Descripcion', sql.VarChar, consecutivo.Descripcion)
+            .input('PoseePrefijo', sql.Varchar, consecutivo.PoseePrefijo)
+            .input('Prefijo', sql.Varchar, consecutivo.Prefijo)
+            .input('PoseeRango', sql.Varchar, consecutivo.PoseeRango)
+            .input('RangoInicial', sql.Varchar, consecutivo.RangoInicial)
+            .input('RangoFinal', sql.Varchar, consecutivo.RangoFinal)
+            .query('INSERT INTO Consecutivos VALUES (@ConsecutivoID, @Descripcion, @PoseePrefijo, @Prefijo, @PoseeRango, @RangoInicial, @RangoFinal)');
+        return insertConsecutivo.recordsets
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+async function addConsecutivo4(consecutivo) {
+    try {
+        let pool = await sql.connect(config);
+        let insertConsecutivo = await pool.request()
+            .input('ConsecutivoID', sql.Int, consecutivo.ConsecutivoID)
+            .input('Descripcion', sql.VarChar, consecutivo.Descripcion)
+            .input('PoseePrefijo', sql.Varchar, consecutivo.PoseePrefijo)
+            .input('Prefijo', sql.Varchar, consecutivo.Prefijo)
+            .input('PoseeRango', sql.Varchar, consecutivo.PoseeRango)
+            .input('RangoInicial', sql.Varchar, consecutivo.RangoInicial)
+            .input('RangoFinal', sql.Varchar, consecutivo.RangoFinal)
+            .query('INSERT INTO Consecutivos VALUES (@ConsecutivoID, @Descripcion, @PoseePrefijo, @Prefijo, @PoseeRango, @RangoInicial, @RangoFinal)');
         return insertConsecutivo.recordsets
     } catch (error) {
         console.log(error);
@@ -43,5 +103,8 @@ async function addConsecutivo(consecutivo) {
 module.exports = {
     getConsecutivos: getConsecutivos,
     getConsecutivo: getConsecutivo,
-    addConsecutivo: addConsecutivo
+    addConsecutivo1: addConsecutivo1,
+    addConsecutivo2: addConsecutivo2,
+    addConsecutivo3: addConsecutivo3,
+    addConsecutivo4: addConsecutivo4,
 }

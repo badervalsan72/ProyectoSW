@@ -34,9 +34,9 @@ async function loginUser() {
 
 
 
-    if (result > 0) {        
+    if (result > 0) {
         sessionStorage.setItem('email', email)
-        window.location =  '/Frontend/index.html'; 
+        window.location = '/Frontend/index.html';
 
     } else {
         alert('Usuario o contraseña invalidos.');

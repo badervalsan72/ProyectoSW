@@ -50,13 +50,20 @@ async function iniciar() {
                 break;
 
             case '3': // Consecutivo 
+                $("#DivContent").load("Navbars/NavBarGeneral.html");
                 break;
 
             case '4': // Mantenimiento 
+                $("#DivContent").load("Navbars/NavBarGeneral.html");
                 break;
 
             case '5': // Consulta 
                 $("#DivContent").load("Navbars/NavBarConsulta.html");
+                break;
+
+            case '6': // Usuarios normales
+                $("#DivContent").load("Navbars/NavBarGeneral.html");
+                alert("Por favor, contactar con los administradores para que le asignen un rol");
                 break;
 
             default:

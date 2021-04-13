@@ -44,13 +44,13 @@ create table Usuarios (
 )
 
 create table Paises ( 
-	Codigo int not null primary key, 
+	Codigo varchar(100) not null primary key, 
 	Nombre varchar(50) not null, 
 	ImgPais varchar(50) not null 	
 ) 
 
 create table Aerolineas (
-	Codigo int not null primary key, 
+	Codigo varchar(100) not null primary key, 
 	nombreAgencia varchar(50) not null, 
 	ImgAgencia varchar(50) not null,
 	PaisOrigen varchar(50) not null
@@ -69,7 +69,7 @@ create table AerolineasEsp (
 )
 
 create table Puertas ( 
-	Codigo int not null primary key, 
+	Codigo varchar(100) not null primary key, 
 	numeroPuerta varchar(50) not null, 
 	CodigoAeroPuerto int FOREIGN KEY REFERENCES Aeropuertos(Codigo), 
 	estado bit not null
@@ -91,7 +91,7 @@ create table Vuelos (
 	CodigoAerolinea int FOREIGN KEY REFERENCES Aerolineas(Codigo) not null,
 	CodigoOrigen int FOREIGN KEY REFERENCES Paises(Codigo) not null, 
 	CodigoDestino int FOREIGN KEY REFERENCES Paises(Codigo) not null, 
-	fecha date not null,
+	fecha date not null, 
 	hora time not null, 
 	estado int not null, 
 	CodigoPuerta int FOREIGN KEY REFERENCES Puertas(Codigo) not null, 
@@ -105,6 +105,8 @@ create table Boletos (
 	Asiento varchar(50) not null, 
 	estadoBoleto bit not null, 
 )
+
+-- dividir boletos en 2 compras y reservaciones 
 
 
 create table Tarjetas ( 
@@ -150,3 +152,5 @@ INSERT INTO Roles
 VALUES (5, 'Consulta')
 
 
+INSERT INTO Roles 
+VALUES (6, 'Default')

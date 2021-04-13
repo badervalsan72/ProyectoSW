@@ -7,8 +7,9 @@ const postUsuario = async function(TheUrl, nombreUsuario, email) { //CAMBIAR NOM
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    let encryptedUser = CryptoJS.AES.encrypt(nombreUsuario, "password"); //contraseña = "password"
-    let encrypterEmail = CryptoJS.AES.encrypt(email, "password");;
+    let encryptedUser = CryptoJS.AES.encrypt(nombreUsuario, "password").toString(); //contraseña = "password"
+    let encrypterEmail = CryptoJS.AES.encrypt(email, "password").toString();
+
 
 
     var contenido = JSON.stringify({
@@ -40,7 +41,7 @@ async function registrarse() {
     let email = document.getElementById('email').value;
     let username = document.getElementById('username').value;
     let passwd = document.getElementById('passwd').value;
-    let rol = 5;
+    let rol = 6;
 
     let result = await postUsuario('http://localhost:8090/api/Usuarios/validarUsuario', username, email);
 
@@ -51,12 +52,12 @@ async function registrarse() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        let encryptedName = CryptoJS.AES.encrypt(nombre, "password");
-        let encryptedUser = CryptoJS.AES.encrypt(username, "password"); //contraseña = "password"
-        let encryptedApellido1 = CryptoJS.AES.encrypt(apellido1, "password");
-        let encryptedApellido2 = CryptoJS.AES.encrypt(apellido2, "password");
-        let encryptedEmail = CryptoJS.AES.encrypt(email, "password");
-        let encryptedPass = CryptoJS.AES.encrypt(passwd, "password");
+        let encryptedName = CryptoJS.AES.encrypt(nombre, "password").toString();
+        let encryptedUser = CryptoJS.AES.encrypt(username, "password").toString(); //contraseña = "password"
+        let encryptedApellido1 = CryptoJS.AES.encrypt(apellido1, "password").toString();
+        let encryptedApellido2 = CryptoJS.AES.encrypt(apellido2, "password").toString();
+        let encryptedEmail = CryptoJS.AES.encrypt(email, "password").toString();
+        let encryptedPass = CryptoJS.AES.encrypt(passwd, "password").toString();
 
 
         var contenido = JSON.stringify({

@@ -2,7 +2,7 @@ var Paises = require('./models/Paises');
 const paisesOps = require('./operations/PaisesOps');
 const UsuariosOps = require('./operations/UsuariosOps');
 const RolesOps = require('./operations/RolesOps');
-
+const ConsecutivosOps = require('./operations/ConsecutivosOps')
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -108,6 +108,38 @@ router.route('/Roles').get((request, response) => {
     RolesOps.getRoles().then(result => {
         response.json(result[0]);
     })
+})
+
+router.route('/Consecutivos1').post((request, response) => {
+    ConsecutivosOps.addConsecutivo1(request.body.ConsecutivoID, request.body.Descripcion, request.body.PoseePrefijo, request.body.Prefijo, request.body.PoseeRango, request.body.RangoInicial, request.body.RangoFinal).then(result => {
+
+        //Prueba para ver si llega aqui
+
+    }).catch((err) => { console.log(err) })
+})
+
+router.route('/Consecutivos2').post((request, response) => {
+    ConsecutivosOps.addConsecutivo2(request.body.ConsecutivoID, request.body.Descripcion, request.body.PoseePrefijo, request.body.Prefijo, request.body.PoseeRango, request.body.RangoInicial, request.body.RangoFinal).then(result => {
+
+        //Prueba para ver si llega aqui
+
+    }).catch((err) => { console.log(err) })
+})
+
+router.route('/Consecutivos3').post((request, response) => {
+    ConsecutivosOps.addConsecutivo3(request.body.ConsecutivoID, request.body.Descripcion, request.body.PoseePrefijo, request.body.Prefijo, request.body.PoseeRango, request.body.RangoInicial, request.body.RangoFinal).then(result => {
+
+        //Prueba para ver si llega aqui
+
+    }).catch((err) => { console.log(err) })
+})
+
+router.route('/Consecutivos4').post((request, response) => {
+    ConsecutivosOps.addConsecutivo4(request.body.ConsecutivoID, request.body.Descripcion, request.body.PoseePrefijo, request.body.Prefijo, request.body.PoseeRango, request.body.RangoInicial, request.body.RangoFinal).then(result => {
+
+        //Prueba para ver si llega aqui
+
+    }).catch((err) => { console.log(err) })
 })
 
 var port = process.env.PORT || 8090;
