@@ -61,7 +61,7 @@ async function iniciar() {
                 $("#DivContent").load("Navbars/NavBarConsulta.html");
                 break;
 
-            case '6': // Usuarios normales
+            case '6': // Default
                 $("#DivContent").load("Navbars/NavBarGeneral.html");
                 alert("Por favor, contactar con los administradores para que le asignen un rol");
                 break;

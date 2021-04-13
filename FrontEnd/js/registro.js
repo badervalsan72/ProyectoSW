@@ -85,6 +85,11 @@ async function registrarse() {
             .catch(error => console.log('error', error))
 
 
+        if (confirm("Usuario creado exitosamente!")) {
+            window.location = '/Frontend/login.html';
+        } else {
+            window.location = '/Frontend/registro.html';
+        }
     }
 
 }
