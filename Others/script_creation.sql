@@ -57,21 +57,21 @@ create table Aerolineas (
 ) 
 
 create table Aeropuertos ( 
-	Codigo int not null primary key, 
+	Codigo varchar(100) not null primary key, 
 	Nombre varchar(100) not null, 
-	CodigoPais int FOREIGN KEY REFERENCES Paises(Codigo) 
+	CodigoPais varchar(100) FOREIGN KEY REFERENCES Paises(Codigo) 
 )
 
 create table AerolineasEsp ( 
 	CodigoEsp int not null primary key, 
-	CodigoAerolinea int FOREIGN KEY REFERENCES Aerolineas(Codigo), 
-	CodigoAeroPuerto int FOREIGN KEY REFERENCES Aeropuertos(Codigo)
+	CodigoAerolinea varchar(100) FOREIGN KEY REFERENCES Aerolineas(Codigo), 
+	CodigoAeroPuerto varchar(100) FOREIGN KEY REFERENCES Aeropuertos(Codigo)
 )
 
 create table Puertas ( 
 	Codigo varchar(100) not null primary key, 
 	numeroPuerta varchar(50) not null, 
-	CodigoAeroPuerto int FOREIGN KEY REFERENCES Aeropuertos(Codigo), 
+	CodigoAeroPuerto varchar(100) FOREIGN KEY REFERENCES Aeropuertos(Codigo), 
 	estado bit not null
 	
 ) 
@@ -88,13 +88,13 @@ create table Bitacora (
 
 create table Vuelos ( 
 	Codigo varchar(100) not null primary key,
-	CodigoAerolinea int FOREIGN KEY REFERENCES Aerolineas(Codigo) not null,
-	CodigoOrigen int FOREIGN KEY REFERENCES Paises(Codigo) not null, 
-	CodigoDestino int FOREIGN KEY REFERENCES Paises(Codigo) not null, 
+	CodigoAerolinea varchar(100) FOREIGN KEY REFERENCES Aerolineas(Codigo) not null,
+	CodigoOrigen varchar(100) FOREIGN KEY REFERENCES Paises(Codigo) not null, 
+	CodigoDestino varchar(100) FOREIGN KEY REFERENCES Paises(Codigo) not null, 
 	fecha date not null, 
 	hora time not null, 
 	estado int not null, 
-	CodigoPuerta int FOREIGN KEY REFERENCES Puertas(Codigo) not null, 
+	CodigoPuerta varchar(100) FOREIGN KEY REFERENCES Puertas(Codigo) not null, 
 
 ) 
 

@@ -2,9 +2,12 @@ const validarUserLogin = async function(TheUrl, email, passwd) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
+    let encrypterEmail = CryptoJS.AES.encrypt(email, "password").toString();
+    let encryptedPass = CryptoJS.AES.encrypt(passwd, "password").toString();
+
     var contenido = JSON.stringify({
-        "email": email,
-        "password": passwd
+        "email": encrypterEmail,
+        "password": encryptedPass
     });
 
     var requestOptions = {

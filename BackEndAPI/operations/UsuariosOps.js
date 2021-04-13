@@ -18,11 +18,11 @@ async function getUsuario(codigoUsuario) {
         let usuario = await pool.request()
             .input('input_paramater', sql.VarChar, codigoUsuario)
             .query("SELECT * from Usuarios where NombreUsuario = @input_paramater");
+
         return usuario.recordsets;
     } catch (error) {
         console.log(error);
     }
-
 }
 
 
@@ -46,7 +46,6 @@ async function addUsuario(username, nombre, apellido1, apellido2, email, passwd,
         console.log('Error');
         console.log(err);
     }
-
 }
 
 async function validarUsuario(username, email) {

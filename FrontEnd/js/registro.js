@@ -77,6 +77,7 @@ async function registrarse() {
             body: contenido,
 
         };
+
         await fetch('http://localhost:8090/api/Usuarios/agregarUsuario', requestOptions)
             .then(response => response.text())
             .then(result => result.toString())
