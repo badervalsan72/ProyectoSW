@@ -85,19 +85,19 @@
 							<td>Consecutivo</td>
 							<td>Costa Rica</td>
 							<td>costarica.png</td>
-							<td id="center"><a href="#"><button class="btnDesign">Editar</button></a></td>						
+							<td id="center"><a href="editarpais.html"><button class="btnDesign">Editar</button></a></td>						
 						</tr>
 						<tr>
 							<td>Consecutivo</td>
 							<td>España</td>	
 							<td>españa.png</td>	
-							<td id="center"><a href="#"><button class="btnDesign">Editar</button></a></td>						
+							<td id="center"><a href="editarpais.html"><button class="btnDesign">Editar</button></a></td>						
 						</tr>
 						<tr>
 							<td>Consecutivo</td>
 							<td>Mexico</td>	
 							<td>mexico.png</td>
-							<td id="center"><a href="#"><button class="btnDesign">Editar</button></a></td>	
+							<td id="center"><a href="editarpais.html"><button class="btnDesign">Editar</button></a></td>	
 						</tr>
 						-->
 					</table>
@@ -107,6 +107,11 @@
 					<h3> Formulario añadir <span class="color">País</span></h3>
                 
                     <!-- Inicio del Formulario  -->
+
+					<label for="codigo" class="decorator">Código del País</label>
+                    <input type="text" name="codigo" id="codigo">
+                        
+                    <br>
                 
                     <label for="pais" class="decorator">Nombre del País</label>
                     <input type="text" name="pais" id="pais">
@@ -131,6 +136,7 @@
 <script>
 
     function limpiarCampos(){
+		document.getElementById("codigo").value = "";
         document.getElementById("pais").value = "";
         document.getElementById("imagen").value = "";
     }
