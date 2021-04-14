@@ -19,13 +19,20 @@ drop table consecutivos
 */
 
 create table Consecutivos (
-	ConsecutivoID int primary key not null, 
+	ConsecutivoID varchar(100) primary key not null, 
+	Consecutivo int not null, 
 	Descripcion varchar(100) not null,
 	PoseePrefijo bit not null, 
 	Prefijo varchar(100),
 	PoseeRango bit not null, 
 	RangoInicial int,
 	RangoFinal int
+)
+
+create table ConsecutivosEsp (
+	ConsecutivoEspID varchar(100) not null, 
+	ConsecutivoID varchar(100) not null FOREIGN KEY REFERENCES Consecutivos(ConsecutivoID) 
+
 )
 
 create table Roles ( 

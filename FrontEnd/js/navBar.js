@@ -1,9 +1,13 @@
 const getRol = async function(TheUrl, email) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+    var key = CryptoJS.enc.Hex.parse('password');
+    let encryptedEmail = CryptoJS.AES.encrypt(email, key, {
+        mode: CryptoJS.mode.ECB,
+    }).toString();
 
     var contenido = JSON.stringify({
-        "email": email,
+        "email": encryptedEmail,
     });
 
     var requestOptions = {

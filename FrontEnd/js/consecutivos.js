@@ -1,73 +1,74 @@
-async function addConsecutivo() {
+async function getConsecutivos() {
+    console.log("hello")
+    let result;
+    await fetch("http://localhost:8090/api/Consecutivos")
+        .then(response => response.json())
+        .then(data => result = data);
 
-    let consecutivoID = document.getElementById('consecutivoID').value;
-    let descripcion = document.getElementById('displaySelect').value;
-    let poseePrefijo = document.getElementById('prefijo').checked;
-    let poseeRango = document.getElementById('rango').checked;
-    let rangoInicial;
-    let rangoFinal;
-    let prefijo;
-    if (poseePrefijo) {
-        prefijo = document.getElementById('lblPrefijo').value;
-        consecutivoID = prefijo + "-" + consecutivoID;
+    var tbl = document.getElementById('consecutivos');
+    for (var i = 0; i < result.length; i++) {
 
+        var tr = document.createElement('tr');
+
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        var td4 = document.createElement('td');
+
+        var key = CryptoJS.enc.Hex.parse('password');
+
+        var consecutivoID = result[i]['ConsecutivoID'];
+        consecutivoID = CryptoJS.AES.decrypt(consecutivoID, key, {
+            mode: CryptoJS.mode.ECB,
+        }).toString(CryptoJS.enc.Latin1);
+
+        var descripcionDC = result[i]['Descripcion'];
+        descripcionDC = CryptoJS.AES.decrypt(descripcionDC, key, {
+            mode: CryptoJS.mode.ECB,
+        }).toString(CryptoJS.enc.Latin1);
+
+        td1.appendChild(document.createTextNode(consecutivoID))
+        tr.appendChild(td1);
+
+        td2.appendChild(document.createTextNode(descripcionDC))
+        tr.appendChild(td2);
+
+        td3.appendChild(document.createTextNode(result[i]['Consecutivo']))
+        tr.appendChild(td3);
+
+        var att_td4_id = document.createAttribute("id");
+        att_td4_id.value = i + 1;
+        td4.setAttributeNode(att_td4_id);
+
+        var att_td4_class = document.createAttribute("class");
+        att_td4_class.value = "center";
+        td4.setAttributeNode(att_td4_class);
+
+        var btn = document.createElement('button');
+        var att_btn_class = document.createAttribute("class");
+        att_btn_class.value = 'btnDesign';
+        btn.setAttributeNode(att_btn_class);
+
+        var att_btn_onclick = document.createAttribute("onclick");
+        att_btn_onclick.value = "editarConsecutivo('" + consecutivoID + "')";
+        btn.setAttributeNode(att_btn_onclick);
+
+        btn.appendChild(document.createTextNode("Editar"));
+        td4.appendChild(btn);
+        tr.appendChild(td4);
+
+        tbl.appendChild(tr);
     }
-
-    if (poseeRango) {
-        rangoInicial = document.getElementById('lblRangoInicial').value;
-        rangoFinal = document.getElementById('lblRangoFinal').value;
-        console.log(rangoInicial + " " + rangoFinal);
-
-        if (rangoInicial >= rangoFinal || rangoInicial <= 0) {
-            alert('El rango inicial debe ser mayor al rango final y debe ser mayor a 0');
-            return;
-
-        }
-    }
-
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    if (poseePrefijo && poseeRango) {
-
-        //encritar acui
-
-        var contenido = JSON.stringify({
-            "consecutivoID": consecutivoID,
-            "descripcion": descripcion,
-            "poseePrefijo": poseePrefijo,
-            "prefijo": prefijo,
-            "poseeRango": poseeRango,
-            "rangoInicial": rangoInicial,
-            "rangoFinal": rangoFinal
-
-        });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: contenido,
-
-        };
-
-        let resulted = await fetch("http://localhost:8090/api/addConsecutivo1", requestOptions)
-            .then(response => response.text())
-            .then(result => result.toString())
-            .catch(error => console.log('error', error))
-
-
-    } else if (poseePrefijo && !poseeRango) {
-
-    } else if (!poseePrefijo && poseeRango) {
-
-    } else {
-
-
-    }
-
-
-
-
-
-
-
+    console.log("goodbye")
 }
+// tbl.appendChild(tbdy);
+
+
+function editarConsecutivo(consecutivoID) {
+    localStorage.setItem('consecutivoID', consecutivoID);
+    window.location = '/Frontend/editarconsecutivo.html';
+}
+
+
+
+window.onload = getConsecutivos;

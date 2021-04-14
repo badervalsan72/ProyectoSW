@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', router);
+// preguntar si borrar esto 
 app.use(session({ secret: 'secret' })); //No me queda muy claro esto
 
 /******SESIONES*******/
@@ -28,7 +29,11 @@ app.route('/').get(function(req, res) {
 });
 
 app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: true }));
-
+// 
+// 
+// 
+//
+//
 
 
 /*****SESIONES*******/
@@ -109,12 +114,21 @@ router.route('/Roles').get((request, response) => {
         response.json(result[0]);
     })
 })
+router.route('/getConsecutivo').post((request, response) => {
+    ConsecutivosOps.getConsecutivo(request.body.consecutivoID).then(result => {
+        response.json(result[0]);
+    }).catch((err) => { console.log(err) })
+})
+
+router.route('/Consecutivos').get((request, response) => {
+    ConsecutivosOps.getConsecutivos().then(result => {
+        response.json(result[0]);
+    })
+})
 
 router.route('/Consecutivos1').post((request, response) => {
-    ConsecutivosOps.addConsecutivo1(request.body.ConsecutivoID, request.body.Descripcion, request.body.PoseePrefijo, request.body.Prefijo, request.body.PoseeRango, request.body.RangoInicial, request.body.RangoFinal).then(result => {
-
-        //Prueba para ver si llega aqui
-
+    ConsecutivosOps.addConsecutivo1(request.body.consecutivoID, request.body.consecutivo, request.body.descripcion, request.body.poseePrefijo, request.body.prefijo, request.body.poseeRango, request.body.rangoInicial, request.body.rangoFinal).then(result => {
+        response.json(result[0]);
     }).catch((err) => { console.log(err) })
 })
 
