@@ -128,8 +128,10 @@ function cargarImagen() {
         }
 
         // Image Preview
-        const files = inputFile.files[0]; //files[0] - For getting first file
+        const files = inputFile.files[0]; //files[0] - For getting first file TIENE LA IMAGEN
         //   console.log(files);
+
+        console.log("tipo de files en la imagen: " + typeof(files));
 
         if (files) {
             // Showing Image and Hiding "Image Preview" Text

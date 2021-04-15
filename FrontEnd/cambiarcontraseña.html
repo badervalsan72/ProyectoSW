@@ -1,171 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>V-Vuelos - Cambiar Contraseña</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="" />
-<meta name="author" content="http://webthemez.com" />
-<!-- css --> 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet"> 
-<link href="css/flexslider.css" rel="stylesheet" /> 
-<link href="css/style.css" rel="stylesheet" />
- 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <title>V-Vuelos - Cambiar Contraseña</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="http://webthemez.com" />
+    <!-- css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
 </head>
+
 <body>
-<div id="wrapper"> 
-		<!-- Start of the Header -->
-	
-		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-		<script> 
-		$(function(){
-		  $("#DivContent").load("Navbars/NavBarAdministrador.html"); 
-		});
-		</script> 
-	
-		<div id="DivContent"></div>
-	
-		<!-- End of the Header -->
-	
-		<!--===============================================================================================-->
+    <div id="wrapper">
+        <!-- Start of the Header -->
 
-		<!-- Start of the HeadTitle -->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            $(function() {
+                $("#DivContent").load("Navbars/NavBarAdministrador.html");
+            });
+        </script>
 
-	<section id="inner-headline">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<h2 class="pageTitle">Cambiar Contraseña</h2>
-			</div>
-		</div>
-	</div>
-	</section>
+        <div id="DivContent"></div>
 
-	<!-- End of the HeadTitle -->
-	
-	<!--===============================================================================================-->
+        <!-- End of the Header -->
 
-	<!-- Start of the Content Page -->
+        <!--===============================================================================================-->
 
-<section id="content">
-	<section class="section-padding">
-		<div class="container">
-			<div class="row showcase-section">
-				<div class="col-md-6">
-					<div class="about-text">
-						<h3>Formulario Cambio <span class="color">de Contraseña</span></h3>
+        <!-- Start of the HeadTitle -->
 
-						<!-- Inicio del Formulario  -->
-									
-						<form>
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="pageTitle">Cambiar Contraseña</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-							<div>
-								<label class="decorator">Contraseña</label>
-								<input type="password">
-							</div>
+        <!-- End of the HeadTitle -->
 
-                            <div>
-								<label class="decorator">Nueva Contraseña</label>
-								<input type="password">
-							</div>
+        <!--===============================================================================================-->
 
-							<div>
-								<label class="decorator">Confirmar Contraseña</label>
-								<input type="password">
-							</div>
+        <!-- Start of the Content Page -->
 
-							<button class="decobutton decobutton1">Cambiar Contraseña</button>
-                            <button class="decobutton decobutton2">Cancelar</button>
-								
-						</form>
+        <section id="content">
+            <section class="section-padding">
+                <div class="container">
+                    <div class="row showcase-section">
+                        <div class="col-md-6">
+                            <div class="about-text">
+                                <h3>Formulario Cambio <span class="color">de Contraseña</span></h3>
 
-						<!-- Fin del Formulario  -->
-						 
-					</div>
-				</div>
+                                <!-- Inicio del Formulario  -->
 
-                <!-- Image place in the seccion -->
+                                <form>
 
-                <div class="col-md-6">
-					<img src="img/ControlTower3.jpeg" alt="showcase image">
-				</div>
+                                    <div>
+                                        <label id="email" class="decorator">Correo electrónico</label>
+                                        <input type="email">
+                                    </div>
 
-			</div>
-		</div>
-	</section>						
-</section>
+                                    <div>
+                                        <label id="oldPwd" class="decorator">Contraseña</label>
+                                        <input type="password">
+                                    </div>
 
-	<!-- End of the Content Page -->
-	
-	<!--===============================================================================================-->
+                                    <div>
+                                        <label id="newPwd" class="decorator">Nueva Contraseña</label>
+                                        <input type="password">
+                                    </div>
 
-	<!-- Start of Footer -->
+                                    <div>
+                                        <label id="repeatedNewPwd" class="decorator">Confirmar Contraseña</label>
+                                        <input type="password">
+                                    </div>
 
-	<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-3 col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Our Contact</h5>
-					<address>
+                                    <button class="decobutton decobutton1 " onclick="cambiarContraseña()">Cambiar Contraseña</button>
+                                    <button class="decobutton decobutton2" onclick="cancelarCambio()">Cancelar</button>
+
+                                </form>
+
+                                <!-- Fin del Formulario  -->
+
+                            </div>
+                        </div>
+
+                        <!-- Image place in the seccion -->
+
+                        <div class="col-md-6">
+                            <img src="img/ControlTower3.jpeg" alt="showcase image">
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- End of the Content Page -->
+
+        <!--===============================================================================================-->
+
+        <!-- Start of Footer -->
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Our Contact</h5>
+                            <address>
 					<strong>Bootstrap company Inc</strong><br>
 					JC Main Road, Near Silnile tower<br>
 					 Pin-21542 NewYork US.</address>
-					<p>
-						<i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
-						<i class="icon-envelope-alt"></i> email@domainname.com
-					</p>
-				</div>
-			</div>
-			<div class="col-sm-3 col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Quick Links</h5>
-					<ul class="link-list">
-						<li><a class="waves-effect waves-dark" href="#">Latest Events</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Terms and conditions</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Privacy policy</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Career</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-sm-3 col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
-					<ul class="link-list">
-						<li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-sm-3 col-lg-3">
-					<div class="widget">
-					<h5 class="widgetheading">Recent News</h5>
-					<ul class="link-list">
-						<li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="sub-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="copyright">
-						<p>
-							<span>&copy; Bootstrap Template 2018 All right reserved. <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Bootstrap Templates</a> By WebThemez
+                            <p>
+                                <i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
+                                <i class="icon-envelope-alt"></i> email@domainname.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Quick Links</h5>
+                            <ul class="link-list">
+                                <li><a class="waves-effect waves-dark" href="#">Latest Events</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Terms and conditions</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Privacy policy</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Career</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Latest posts</h5>
+                            <ul class="link-list">
+                                <li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Recent News</h5>
+                            <ul class="link-list">
+                                <li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="copyright">
+                                <p>
+                                    <span>&copy; Bootstrap Template 2018 All right reserved. <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Bootstrap Templates</a> By WebThemez
 						</p>
 					</div>
 				</div>
@@ -201,5 +208,8 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/animate.js"></script> 
 <script src="js/custom.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<script src="js/cambiarContraseña.js"></script>
 </body>
 </html>
