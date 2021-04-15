@@ -1,86 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>V-Vuelos - Países</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="" />
-<meta name="author" content="http://webthemez.com" />
-<!-- css --> 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet"> 
-<link href="css/flexslider.css" rel="stylesheet" /> 
-<link href="css/style.css" rel="stylesheet" />
- 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <title>V-Vuelos - Países</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="http://webthemez.com" />
+    <!-- css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
 </head>
+
 <body>
-<div id="wrapper"> 
-		<!-- Start of the Header -->
-	
-		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-		<script> 
-		$(function(){
-		  $("#DivContent").load("Navbars/NavBarAdministrador.html"); 
-		});
-		</script> 
-	
-		<div id="DivContent"></div>
-	
-		<!-- End of the Header -->
-	
-		<!--===============================================================================================-->
+    <div id="wrapper">
+        <!-- Start of the Header -->
 
-		<!-- Start of the HeadTitle -->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            $(function() {
+                $("#DivContent").load("Navbars/NavBarAdministrador.html");
+            });
+        </script>
 
-	<section id="inner-headline">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<h2 class="pageTitle">Lista de Países</h2>
-			</div>
-		</div>
-	</div>
-	</section>
+        <div id="DivContent"></div>
 
-	<!-- End of the HeadTitle -->
-	
-	<!--===============================================================================================-->
+        <!-- End of the Header -->
 
-	<!-- Start of the Image Holder -->
+        <!--===============================================================================================-->
 
-	<section id="banner">
-        <div>
-            <img src="img/Airplane.jpeg" alt="showcase image" style="width: 100%;"/>
-		</div>
-	</section>
+        <!-- Start of the HeadTitle -->
 
-	<!-- End of the Image Holder -->
-	
-	<!--===============================================================================================-->
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="pageTitle">Lista de Países</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-	<!-- Start of the Content Page -->
+        <!-- End of the HeadTitle -->
 
-<section id="content">
-	<section class="section-padding">
-		<div class="container">
-			<div class="row showcase-section">
-				<div class="col-lg-7">
-                    <br>			
-					<table id="paises">
-						<tr>
-							<th>Código de País</th>
-							<th>Nombre del País</th>
-							<th>Imagen</th>
-							<th></th>
-						</tr>
-						<!-- 
+        <!--===============================================================================================-->
+
+        <!-- Start of the Image Holder -->
+
+        <section id="banner">
+            <div>
+                <img src="img/Airplane.jpeg" alt="showcase image" style="width: 100%;" />
+            </div>
+        </section>
+
+        <!-- End of the Image Holder -->
+
+        <!--===============================================================================================-->
+
+        <!-- Start of the Content Page -->
+
+        <section id="content">
+            <section class="section-padding">
+                <div class="container">
+                    <div class="row showcase-section">
+                        <div class="col-lg-7">
+                            <br>
+                            <table id="paises">
+                                <tr>
+                                    <th>Código de País</th>
+                                    <th>Nombre del País</th>
+                                    <th>Imagen</th>
+                                    <th></th>
+                                </tr>
+                                <!-- 
 						<tr>
 							<td>Consecutivo</td>
 							<td>Costa Rica</td>
@@ -100,114 +102,166 @@
 							<td id="center"><a href="editarpais.html"><button class="btnDesign">Editar</button></a></td>	
 						</tr>
 						-->
-					</table>
-				</div>	
+                            </table>
+                        </div>
 
-				<div class="col-lg-5">
-					<h3> Formulario añadir <span class="color">País</span></h3>
-                
-                    <!-- Inicio del Formulario  -->
+                        <div class="col-lg-5">
+                            <h3> Formulario añadir <span class="color">País</span></h3>
 
-					<label for="codigo" class="decorator">Código del País</label>
-                    <input type="text" name="codigo" id="codigo">
-                        
-                    <br>
-                
-                    <label for="pais" class="decorator">Nombre del País</label>
-                    <input type="text" name="pais" id="pais">
-                
-                    <br>
-                
-					<textarea id="imagen" name="imagen" id="imagen" cols="30" rows="10" readonly></textarea>	
-                    <button class="decobutton decobutton2">Cargar Imagen</button>
-                    <button class="decobutton decobutton1">Agregar País</button>
-                    <button class="decobutton decobutton2" onclick="limpiarCampos()">Limpiar</button>
-                
-                    <!-- Fin del Formulario  -->
-                
-				</div>
-            </div>
-        </div>
-	</section>						
-</section>
+                            <!-- Inicio del Formulario  -->
 
-<!-- JavaScript for Button Limpiar -->
+                            <div>
+                                <label for="codigoPais" class="decorator" id="codigo">Código </label>
+                                <br>
+                                <select id="displaySelect" id="codigoPais" name="codigoPais">						
+								</select>
+                            </div>
+                            <br>
 
-<script>
+                            <label for="identificador" class="decorator">Identificador</label>
+                            <input type="number" name="identificador" id="identificador">
 
-    function limpiarCampos(){
-		document.getElementById("codigo").value = "";
-        document.getElementById("pais").value = "";
-        document.getElementById("imagen").value = "";
-    }
+                            <br>
 
-</script>
+                            <label for="pais" class="decorator">Nombre del País</label>
+                            <input type="text" name="pais" id="pais">
 
-<!-- End JavaScript for Button Limpiar -->
+                            <br>
 
-	<!-- End of the Content Page -->
-	
-	<!--===============================================================================================-->
+                            <span id="custom-space"> <strong> No</strong> File, Selected!?</span>
+                            <img src="" id="preview_img" class="preview_img" width="450" height="300" style="display:none" />
+                            <span id="preview_text" class="preview_text">Visualización de la imágen</span>
 
-	<!-- Start of Footer -->
+                            <input type="file" id="inputFile" class="decobutton decobutton2" style="display:none"></input>
+                            <button id="btnCargar" class="decobutton decobutton2">Cargar Imágen</button>
 
-	<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-3 col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Our Contact</h5>
-					<address>
+
+
+                            <script type="text/javascript">
+                                let inputFile = document.getElementById("inputFile");
+                                let btnCargar = document.getElementById("btnCargar");
+                                let imageSpace = document.getElementById("custom-space");
+
+                                btnCargar.addEventListener("click", function() {
+                                    inputFile.click();
+                                });
+
+                                inputFile.addEventListener("change", function() {
+                                    //  Format Selected File Text
+                                    if (inputFile.value) {
+                                        imageSpace.innerHTML =
+                                            inputFile.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+                                    } else {
+                                        imageSpace.innerHTML = "No File, Selected!";
+                                    }
+
+                                    // Image Preview
+                                    const files = inputFile.files[0]; //files[0] - For getting first file
+                                    //   console.log(files);
+
+                                    if (files) {
+                                        // Showing Image and Hiding "Image Preview" Text
+                                        preview_img.style.display = "block";
+                                        preview_text.style.display = "none";
+                                        //Read File
+                                        const fileReader = new FileReader();
+
+                                        fileReader.addEventListener("load", function() {
+                                            // convert image to base64 encoded string
+                                            preview_img.setAttribute("src", this.result);
+                                            console.log("resultado = " + this.result);
+                                        });
+                                        fileReader.readAsDataURL(files);
+                                    }
+                                });
+                            </script>
+
+                            <button class="decobutton decobutton1" onclick="addPais()">Agregar País</button>
+                            <button class="decobutton decobutton2" onclick="limpiarCampos()">Limpiar</button>
+
+                            <!-- Fin del Formulario  -->
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- JavaScript for Button Limpiar -->
+
+        <script>
+            function limpiarCampos() {
+                document.getElementById("codigo").value = "";
+                document.getElementById("pais").value = "";
+                document.getElementById("imagen").value = "";
+            }
+        </script>
+
+        <!-- End JavaScript for Button Limpiar -->
+
+        <!-- End of the Content Page -->
+
+        <!--===============================================================================================-->
+
+        <!-- Start of Footer -->
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Our Contact</h5>
+                            <address>
 					<strong>Bootstrap company Inc</strong><br>
 					JC Main Road, Near Silnile tower<br>
 					 Pin-21542 NewYork US.</address>
-					<p>
-						<i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
-						<i class="icon-envelope-alt"></i> email@domainname.com
-					</p>
-				</div>
-			</div>
-			<div class="col-sm-3 col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Quick Links</h5>
-					<ul class="link-list">
-						<li><a class="waves-effect waves-dark" href="#">Latest Events</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Terms and conditions</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Privacy policy</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Career</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-sm-3 col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
-					<ul class="link-list">
-						<li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-sm-3 col-lg-3">
-					<div class="widget">
-					<h5 class="widgetheading">Recent News</h5>
-					<ul class="link-list">
-						<li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="sub-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="copyright">
-						<p>
-							<span>&copy; Bootstrap Template 2018 All right reserved. <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Bootstrap Templates</a> By WebThemez
+                            <p>
+                                <i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
+                                <i class="icon-envelope-alt"></i> email@domainname.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Quick Links</h5>
+                            <ul class="link-list">
+                                <li><a class="waves-effect waves-dark" href="#">Latest Events</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Terms and conditions</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Privacy policy</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Career</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Latest posts</h5>
+                            <ul class="link-list">
+                                <li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="widget">
+                            <h5 class="widgetheading">Recent News</h5>
+                            <ul class="link-list">
+                                <li><a class="waves-effect waves-dark" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+                                <li><a class="waves-effect waves-dark" href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="copyright">
+                                <p>
+                                    <span>&copy; Bootstrap Template 2018 All right reserved. <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Bootstrap Templates</a> By WebThemez
 						</p>
 					</div>
 				</div>
@@ -247,4 +301,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 <script src="js/paises.js"></script>
 </body>
-</html>
+</html>igo

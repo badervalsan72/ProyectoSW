@@ -9,9 +9,8 @@ async function cargarConsecutivo() {
     let rangoFinal = document.getElementById('lblRangoFinal');
 
     let consecutivoID = localStorage.getItem('consecutivoID');
+
     consecutivo.value = consecutivoID;
-
-
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -33,19 +32,17 @@ async function cargarConsecutivo() {
         body: contenido,
 
     };
-    console.log('linea 28');
+
 
     let result;
     await fetch('http://localhost:8090/api/getConsecutivo', requestOptions)
         .then(response => response.json())
         .then(data => result = data);
 
-    console.log('hola');
-    console.log(result);
 
     // let descrip = result[0]['Descripcion'];
 
-    var key = CryptoJS.enc.Hex.parse('password');
+
 
     descripcion.value = CryptoJS.AES.decrypt((result[0]['Descripcion']), key, {
         mode: CryptoJS.mode.ECB,
@@ -68,22 +65,27 @@ async function cargarConsecutivo() {
     consecutivonum.value = result[0]['Consecutivo'];
 }
 
-async function addConsecutivo() {
+async function updateConsecutivo() {
     let consecutivoID = document.getElementById('consecutivo').value;
     let consecutivo = document.getElementById('consecutivonum').value;
     let descripcion = document.getElementById('descripcion').value;
     let poseePrefijo = document.getElementById('prefijo').checked;
-    let prefijo;
+    let prefijo = null;
     let poseeRango = document.getElementById('rango').checked;
-    let rangoInicial;
+    let rangoInicial = null;
     let rangoFinal;
+    var key = CryptoJS.enc.Hex.parse('password');
 
     if (poseePrefijo) {
         prefijo = document.getElementById('lblPrefijo').value;
         consecutivoID = prefijo + "-" + consecutivo;
 
+        prefijo = CryptoJS.AES.encrypt(prefijo, key, {
+            mode: CryptoJS.mode.ECB,
+        }).toString();
+
     }
-    
+
     if (poseeRango) {
         rangoInicial = document.getElementById('lblRangoInicial').value;
         rangoFinal = document.getElementById('lblRangoFinal').value;
@@ -95,67 +97,62 @@ async function addConsecutivo() {
 
         }
     }
-    
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    
-    if (poseePrefijo && poseeRango) {
-
-        console.log("caso 1.");
-
-        //********key*********/
-        var key = CryptoJS.enc.Hex.parse('password');
-
-        let encryptedConsecutivoID = CryptoJS.AES.encrypt(consecutivoID, key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString();
-
-        let encrypteddescripcion = CryptoJS.AES.encrypt(descripcion, key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString();
-
-        let encryptedprefijo = CryptoJS.AES.encrypt(prefijo, key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString();
-
-        var contenido = JSON.stringify({
-            "consecutivoID": encryptedConsecutivoID,
-            "consecutivo": consecutivo,
-            "descripcion": encrypteddescripcion,
-            "poseePrefijo": poseePrefijo,
-            "prefijo": encryptedprefijo,
-            "poseeRango": poseeRango,
-            "rangoInicial": rangoInicial,
-            "rangoFinal": rangoFinal
-
-        });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: contenido,
-
-        };
-        
-        let resulted = await fetch("http://localhost:8090/api/Consecutivos1", requestOptions)
-            .then(response => response.text())
-            .then(result => result.toString())
-            .catch(error => console.log('error', error))
-
-        alert('consecutivo creado exitosamente.');
-        
-
-    } else if (poseePrefijo && !poseeRango) {
 
 
 
-    } else if (!poseePrefijo && poseeRango) {
+    console.log("caso 1.");
 
-    } else {
+    //********key*********/
 
 
-    }
-    window.location = '/FrontEnd/consecutivos.html'; 
+    let encryptedConsecutivoID = CryptoJS.AES.encrypt(consecutivoID, key, {
+        mode: CryptoJS.mode.ECB,
+    }).toString();
+
+    let oldConsecutivoID = localStorage.getItem('consecutivoID');
+
+
+    let oldConsecutivoIDEnc = CryptoJS.AES.encrypt(oldConsecutivoID, key, {
+        mode: CryptoJS.mode.ECB,
+    }).toString();
+
+    let encrypteddescripcion = CryptoJS.AES.encrypt(descripcion, key, {
+        mode: CryptoJS.mode.ECB,
+    }).toString();
+
+
+
+    var contenido = JSON.stringify({
+        "oldConsecutivoID": oldConsecutivoIDEnc,
+        "consecutivoID": encryptedConsecutivoID,
+        "consecutivo": consecutivo,
+        "descripcion": encrypteddescripcion,
+        "poseePrefijo": poseePrefijo,
+        "prefijo": prefijo,
+        "poseeRango": poseeRango,
+        "rangoInicial": rangoInicial,
+        "rangoFinal": rangoFinal
+
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: contenido,
+
+    };
+
+    let resulted = await fetch("http://localhost:8090/api/updateConsecutivo", requestOptions)
+        .then(response => response.text())
+        .then(result => result.toString())
+        .catch(error => console.log('error', error))
+
+    alert('consecutivo creado exitosamente.');
+
+    window.location = '/FrontEnd/consecutivos.html';
 }
 
 window.onload = cargarConsecutivo;

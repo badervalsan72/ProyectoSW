@@ -31,7 +31,7 @@ create table Consecutivos (
 
 create table ConsecutivosEsp (
 	ConsecutivoEspID varchar(100) not null, 
-	ConsecutivoID varchar(100) not null FOREIGN KEY REFERENCES Consecutivos(ConsecutivoID) 
+	ConsecutivoID varchar(100) not null 
 
 )
 
