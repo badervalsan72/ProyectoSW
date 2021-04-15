@@ -2328,3 +2328,59 @@ center {
     background-color: #F4783B;
     color: white;
 }
+
+/* Table design for llegadasvuelos.html */
+
+#llegada {
+    font-size: medium;
+    border-collapse: collapse;
+    width: 1000px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+#llegada td,
+#llegada th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#llegada tr {
+    background-color: #f2f2f2;
+}
+
+#llegada th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #F4783B;
+    color: white;
+}
+
+/* Table design for salidasvuelos.html */
+
+#salida {
+    font-size: medium;
+    border-collapse: collapse;
+    width: 1000px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+#salida td,
+#salida th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#salida tr {
+    background-color: #f2f2f2;
+}
+
+#salida th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #F4783B;
+    color: white;
+}
