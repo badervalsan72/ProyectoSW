@@ -33,7 +33,9 @@ async function getPaises() {
             mode: CryptoJS.mode.ECB,
         }).toString(CryptoJS.enc.Latin1); */
 
-        var imgPais;
+        var imgPais = CryptoJS.AES.decrypt(, key, {
+            mode: CryptoJS.mode.ECB,
+        }).toString(CryptoJS.enc.Latin1);
 
         td1.appendChild(document.createTextNode(codigoPais));
         tr.appendChild(td1);
@@ -121,9 +123,11 @@ function cargarImagen() {
     inputFile.addEventListener("change", function() {
         //  Format Selected File Text
         if (inputFile.value) {
-            imageSpace.innerHTML =
-                inputFile.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+            imageSpace.innerHTML = inputFile.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+            localStorage.setItem("imagen", inputFile.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]);
+
         } else {
+            localStorage.setItem("imagen", null);
             imageSpace.innerHTML = "No File, Selected!";
         }
 
@@ -154,18 +158,16 @@ async function addPais() {
     let consecutivo = document.getElementById("displaySelect").value;
     let identificador = document.getElementById("identificador").value;
     let nPais = document.getElementById("pais").value;
-    let imgPais = "x"; //CAMBIAR POR FAVOR 
+    let imgPais = localStorage.getItem("imagen");
     var key = CryptoJS.enc.Hex.parse('password');
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
+    if (imgPais == null) {
+        alert("debe insertar una imagen para poder agregar el pais");
+    }
 
-    /* 
-    let consecutivoEnc = CryptoJS.AES.encrypt(consecutivo, key, {
-        mode: CryptoJS.mode.ECB,
-    }).toString();
-*/
     var contenido = JSON.stringify({
         "consecutivoID": consecutivo
     });

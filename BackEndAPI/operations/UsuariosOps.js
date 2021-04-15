@@ -1,5 +1,6 @@
 var config = require('../dbconfig');
 const sql = require('mssql');
+const ConsecutivosOps = require('./ConsecutivosOps');
 
 
 async function getUsuarios() {
@@ -89,6 +90,28 @@ async function validarUsuarioLogin(email, passwd) {
 
 }
 
+async function getEmailUsuario(email) {
+    console.log("INICIANOD GET EMAIL USUARIO");
+    try {
+
+        console.log(email);
+        let conn = await sql.connect(config);
+
+        let loggear = await conn.request()
+            .input('email', sql.VarChar, email)
+            .query('SELECT * FROM USUARIOS WHERE CorreoElectronico = @email');
+
+        let result = loggear.recordsets;
+
+        console.log("resultado en getemailusuario: " + result);
+
+        return result
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 async function getRolUsuario(email) {
 
     try {
@@ -107,6 +130,24 @@ async function getRolUsuario(email) {
     }
 }
 
+async function UpdatePassUser(email, pass) {
+    try {
+        let conn = await sql.connect(config);
+
+        let update = await conn.request()
+            .input('email', sql.VarChar, email)
+            .input('password', sql.Varchar, pass)
+            .query('Update usuarios set Contraseña = @password where CorreoElectronico = @email');
+
+        let result = update.recordset[0];
+
+        return result
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 module.exports = {
     getUsuarios: getUsuarios,
@@ -114,5 +155,7 @@ module.exports = {
     addUsuario: addUsuario,
     validarUsuario: validarUsuario,
     validarUsuarioLogin: validarUsuarioLogin,
-    getRolUsuario: getRolUsuario
+    getRolUsuario: getRolUsuario,
+    getEmailUsuario: getEmailUsuario,
+    UpdatePassUser: UpdatePassUser
 }

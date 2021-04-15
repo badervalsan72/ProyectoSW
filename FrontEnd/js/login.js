@@ -37,9 +37,9 @@ async function loginUser() {
     let email = document.getElementById('email').value
     let passwd = document.getElementById('passwd').value
 
-    let result = await validarUserLogin('http://localhost:8090/api/Usuarios/validarUsuarioLogin', email, passwd);
-
     var key = CryptoJS.enc.Hex.parse('password');
+
+    let result = await validarUserLogin('http://localhost:8090/api/Usuarios/validarUsuarioLogin', email, passwd);
 
     if (result > 0) {
         sessionStorage.setItem('email', email)

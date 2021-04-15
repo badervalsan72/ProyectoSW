@@ -74,6 +74,28 @@ router.route("/getPaisNC").post((request, response) => {
         });
 });
 
+router.route("/Usuarios/getEmailUsuario").post((request, response) => {
+    UsuariosOps.getEmailUsuario(request.body.email)
+        .then((result) => {
+            response.json(result);
+            //Prueba para ver si llega aqui
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+router.route("/Usuarios/updatePassUser").post((request, response) => {
+    UsuariosOps.UpdatePassUser(request.body.email, request.body.contraseña)
+        .then((result) => {
+            response.json(result);
+            //Prueba para ver si llega aqui
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
 router.route("/Usuarios/validarUsuario").post((request, response) => {
     UsuariosOps.validarUsuario(request.body.username, request.body.email)
         .then((result) => {

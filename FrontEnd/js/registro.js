@@ -11,14 +11,14 @@ const postUsuario = async function(TheUrl, nombreUsuario, email) { //CAMBIAR NOM
         mode: CryptoJS.mode.ECB,
     }).toString(); //contraseña = "password"
 
-    let encrypterEmail = CryptoJS.AES.encrypt(email, key, {
+    let encryptedEmail = CryptoJS.AES.encrypt(email, key, {
         mode: CryptoJS.mode.ECB,
     }).toString();
 
 
     var contenido = JSON.stringify({
         "username": encryptedUser,
-        "email": encrypterEmail
+        "email": encryptedEmail
     });
 
     var requestOptions = {
@@ -60,23 +60,23 @@ async function registrarse() {
         let encryptedName = CryptoJS.AES.encrypt(nombre, key, {
             mode: CryptoJS.mode.ECB,
         }).toString();
-        
+
         let encryptedUser = CryptoJS.AES.encrypt(username, key, {
             mode: CryptoJS.mode.ECB,
         }).toString();
-        
+
         let encryptedApellido1 = CryptoJS.AES.encrypt(apellido1, key, {
             mode: CryptoJS.mode.ECB,
         }).toString();
-        
+
         let encryptedApellido2 = CryptoJS.AES.encrypt(apellido2, key, {
             mode: CryptoJS.mode.ECB,
         }).toString();
-        
+
         let encryptedEmail = CryptoJS.AES.encrypt(email, key, {
             mode: CryptoJS.mode.ECB,
         }).toString();
-        
+
         let encryptedPass = CryptoJS.AES.encrypt(passwd, key, {
             mode: CryptoJS.mode.ECB,
         }).toString();
