@@ -52,6 +52,6 @@ async function loginUser() {
         let passtest = CryptoJS.AES.encrypt("hola", key, {
             mode: CryptoJS.mode.ECB,
         }).toString();
-        alert('hola 1: ' + emailtest + ' \n hola 2: ' + passtest);
+        //alert('hola 1: ' + emailtest + ' \n hola 2: ' + passtest);
     }
 }
