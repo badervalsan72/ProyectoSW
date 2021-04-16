@@ -2384,3 +2384,9 @@ center {
     background-color: #F4783B;
     color: white;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #F4783B;
+    opacity: 1;
+    font-size: small;
+  }
