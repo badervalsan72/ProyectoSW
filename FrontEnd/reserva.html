@@ -71,25 +71,25 @@
 
         <section id="pricing">
             <div class="container">
-               <div class="row"> 
+                <div class="row">
                     <div class="col-md-12">
                         <div class="about-logo">
                             <h3>Paquetes <span class="color">Disponibles</span></h3>
-                        </div>  
+                        </div>
                     </div>
                 </div>
 
                 <!-- Start of the  -->
 
-                <div class="row"> 
-                    <div class="col-md-12 menuItem">     
+                <div class="row">
+                    <div class="col-md-12 menuItem">
                         <ul class="menu">
                             <li>
                                 Miami
                                 <div>
                                     <label for="salidaMiami" class="detail">Fecha de Salida:</label>
                                     <input type="date" id="salidaMiami" placeholder="dd-mm-yyyy" style="height: 30px; width: 1071px;">
-                                    
+
                                     <label for="retornoMiami" class="detail">Fecha de Retorno:</label>
                                     <input type="date" id="retornoMiami" placeholder="dd-mm-yyyy" style="height: 30px;">
 
@@ -109,7 +109,7 @@
                                     <label for="totalMiami" class="detail">Total a Cancelar</label>
                                     <input type="text" id="totalMiami" readonly>
 
-                                    <button class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
+                                    <button id="confirmarMiami" class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
                                 </div>
                             </li>
                             <li>
@@ -124,7 +124,7 @@
                                     <label for="pasajerosPanama" class="detail">Pasajeros:</label>
                                     <input type="number" id="pasajerosPanama" style="height: 30px;">
 
-                                    <button class="decobutton decobutton2">Calcular</button>
+                                    <button class="decobutton decobutton2" onclick="calcularMontoPanama()">Calcular</button>
                                 </div>
 
                                 <div>
@@ -137,7 +137,7 @@
                                     <label for="totalPanama" class="detail">Total a Cancelar</label>
                                     <input type="text" id="totalPanama" readonly>
 
-                                    <button class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
+                                    <button id="confirmarPanama" class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
                                 </div>
                             </li>
                             <li>
@@ -152,7 +152,7 @@
                                     <label for="pasajerosNuevaYork" class="detail">Pasajeros:</label>
                                     <input type="number" id="pasajerosNuevaYork" style="height: 30px;">
 
-                                    <button class="decobutton decobutton2">Calcular</button>
+                                    <button class="decobutton decobutton2" onclick="calcularMontoNuevaYork()">Calcular</button>
                                 </div>
 
                                 <div>
@@ -165,7 +165,7 @@
                                     <label for="totalNuevaYork" class="detail">Total a Cancelar</label>
                                     <input type="text" id="totalNuevaYork" readonly>
 
-                                    <button class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
+                                    <button id="confirmarNY" class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
                                 </div>
                             </li>
                             <li>
@@ -193,7 +193,7 @@
                                     <label for="totalMexico" class="detail">Total a Cancelar</label>
                                     <input type="text" id="totalMexico" readonly>
 
-                                    <button class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
+                                    <button id="confirmarMexico" class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
                                 </div>
                             </li>
                             <li>
@@ -221,7 +221,7 @@
                                     <label for="totalNicaragua" class="detail">Total a Cancelar</label>
                                     <input type="text" id="totalNicaragua" readonly>
 
-                                    <button class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
+                                    <button id="Nicaragua" class="decobutton decobutton2" onclick="limpiar()" disabled>Confirmar</button>
                                 </div>
                             </li>
                         </ul>
@@ -331,4 +331,4 @@
 <script src="js/aes.js"></script>
 <script src="js/reserva.js"></script>
 </body>
-</html>
+</html>nl

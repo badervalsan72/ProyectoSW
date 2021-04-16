@@ -1,4 +1,4 @@
-function CalcularMontoMiami(){
+function CalcularMontoMiami() {
 
     //Variables para realizar los calculos
     var salidaMiami = document.getElementById('salidaMiami').value;
@@ -7,62 +7,67 @@ function CalcularMontoMiami(){
     var totalMiami;
 
     var arrayMiami = ["a9aa56r", "ap98gao", "ke9!ah9", "p/3j6c1", "po.abt8"]
-    
-    if (salidaMiami == 0 || retornoMiami == 0 || pasajerosMiami == 0 || salidaMiami == null || retornoMiami == null || pasajerosMiami == null){
+
+    if (salidaMiami == 0 || retornoMiami == 0 || pasajerosMiami == 0 || salidaMiami == null || retornoMiami == null || pasajerosMiami == null) {
         alert("Ingrese todos los valores");
     } else {
-        var item = arrayMiami[Math.floor(Math.random() * items.length)];
+        var item = arrayMiami[Math.floor(Math.random() * arrayMiami.length)];
         totalMiami = pasajerosMiami * 700;
         document.getElementById('reservaMiami').value = 4;
-        document.getElementById('idMiami') = item;
+        document.getElementById('idMiami').value = item;
         document.getElementById('totalMiami').value = "$" + totalMiami;
+        document.getElementById('confirmarMiami').disabled = false;
     }
 }
 
-function CalcularMontoPanama(){
+function calcularMontoPanama() {
 
     //Variables para realizar los calculos
-    var salidaPanama = document.getElementById('salidaPanama');
-    var retornoPanama = document.getElementById('retornoPanama');
-    var pasajerosPanama = document.getElementById('pasajerosPanama');
+    var salidaPanama = document.getElementById('salidaPanama').value;
+    var retornoPanama = document.getElementById('retornoPanama').value;
+    var pasajerosPanama = document.getElementById('pasajerosPanama').value;
     var totalPanama;
 
     var arrayPanama = [".pjb47g", "0l.k7pa", "ap4k5m2", "/lpabys8", "l,ah561"]
-    
-    if (salidaPanama == 0 || retornoPanama == 0 || pasajerosPanama == 0 || salidaPanama == null || retornoPanama == null || pasajerosPanama == null){
+
+    if (salidaPanama == 0 || retornoPanama == 0 || pasajerosPanama == 0 || salidaPanama == null || retornoPanama == null || pasajerosPanama == null) {
         alert("Ingrese todos los valores");
     } else {
-        var item = arrayPanama[Math.floor(Math.random() * items.length)];
+        var item = arrayPanama[Math.floor(Math.random() * arrayPanama.length)];
         totalPanama = pasajerosPanama * 400;
-        document.getElementById('reservaMiami').value = 4;
-        document.getElementById('idMiami') = item;
-        document.getElementById('totalMiami').value = "$" + totalPanama;
+        document.getElementById('reservaPanama').value = 10;
+        document.getElementById('idPanama').value = item;
+        document.getElementById('totalPanama').value = "$" + totalPanama;
+
+        document.getElementById('confirmarPanama').disabled = false;
     }
 
 }
 
-function CalcularMontoNuevaYork(){
+function calcularMontoNuevaYork() {
 
     //Variables para realizar los calculos
-    var salidaNuevaYork = document.getElementById('salidaNuevaYork');
-    var retornoNuevYork = document.getElementById('retornoPanama');
-    var pasajerosNuevaYork = document.getElementById('pasajerosNuevaYork');
+    var salidaNuevaYork = document.getElementById('salidaNuevaYork').value;
+    var retornoNuevYork = document.getElementById('retornoPanama').value;
+    var pasajerosNuevaYork = document.getElementById('pasajerosNuevaYork').value;
     var totalNuevaYork;
 
     var arrayNuevaYork = ["pl,16ha", ".13h356q", "lk0ag35", "pw77u89", "mha.l97j"]
-    
-    if (salidaNuevaYork == 0 || retornoNuevYork == 0 || pasajerosNuevaYork == 0 || salidaNuevaYork == null || retornoNuevYork == null || pasajerosNuevaYork == null){
+
+    if (salidaNuevaYork == 0 || retornoNuevaYork == 0 || pasajerosNuevaYork == 0 || salidaNuevaYork == null || retornoNuevaYork == null || pasajerosNuevaYork == null) {
         alert("Ingrese todos los valores");
     } else {
-        var item = arrayNuevaYork[Math.floor(Math.random() * items.length)];
+        var item = arrayNuevaYork[Math.floor(Math.random() * arrayNuevaYork.length)];
         totalNuevaYork = pasajerosNuevaYork * 700;
-        document.getElementById('reservaMiami').value = 4;
-        document.getElementById('idMiami') = item;
-        document.getElementById('totalMiami').value = "$" + totalNuevaYork;
+        document.getElementById('reservaNuevaYork').value = 12;
+        document.getElementById('idNuevaYork').value = item;
+        document.getElementById('totalNuevaYork').value = "$" + totalNuevaYork;
+
+        document.getElementById('confirmarNY').disabled = false;
     }
 }
 
-function CalcularMontoMexico(){
+function CalcularMontoMexico() {
 
     //Variables para realizar los calculos
     var salidaMexico = document.getElementById('salidaMexico');
@@ -71,11 +76,11 @@ function CalcularMontoMexico(){
     var totalMexico;
 
     var arrayMiami = ["a9aa56r", "ap98gao", "ke9!ah9", "p/3j6c1", "po.abt8"]
-    
-    if (salidaMiami == 0 || retornoMiami == 0 || pasajerosMiami == 0 || salidaMiami == null || retornoMiami == null || pasajerosMiami == null){
+
+    if (salidaMiami == 0 || retornoMiami == 0 || pasajerosMiami == 0 || salidaMiami == null || retornoMiami == null || pasajerosMiami == null) {
         alert("Ingrese todos los valores");
     } else {
-        var item = arrayMiami[Math.floor(Math.random() * items.length)];
+        var item = arrayMiami[Math.floor(Math.random() * arrayMiami.length)];
         totalMiami = pasajerosMiami * 700;
         document.getElementById('reservaMiami').value = 4;
         document.getElementById('idMiami') = item;
@@ -83,7 +88,7 @@ function CalcularMontoMexico(){
     }
 }
 
-function CalcularMontoNicaragua(){
+function CalcularMontoNicaragua() {
 
     //Variables para realizar los calculos
     var salidaNicaragua = document.getElementById('salidaNicaragua');
@@ -92,11 +97,11 @@ function CalcularMontoNicaragua(){
     var totalNicaragua;
 
     var arrayMiami = ["a9aa56r", "ap98gao", "ke9!ah9", "p/3j6c1", "po.abt8"]
-    
-    if (salidaMiami == 0 || retornoMiami == 0 || pasajerosMiami == 0 || salidaMiami == null || retornoMiami == null || pasajerosMiami == null){
+
+    if (salidaMiami == 0 || retornoMiami == 0 || pasajerosMiami == 0 || salidaMiami == null || retornoMiami == null || pasajerosMiami == null) {
         alert("Ingrese todos los valores");
     } else {
-        var item = arrayMiami[Math.floor(Math.random() * items.length)];
+        var item = arrayMiami[Math.floor(Math.random() * arrayMiami.length)];
         totalMiami = pasajerosMiami * 700;
         document.getElementById('reservaMiami').value = 4;
         document.getElementById('idMiami') = item;
@@ -104,7 +109,7 @@ function CalcularMontoNicaragua(){
     }
 }
 
-function limpiar(){
+function limpiar() {
     document.getElementById('reservaMiami').value = "";
     document.getElementById('idMiami').value = "";
     document.getElementById('totalMiami').value = "";
@@ -126,3 +131,4 @@ function limpiar(){
     document.getElementById('totalNicaragua').value = "";
 
 }
+document.getElementById('confirmarMiami').disabled = false;

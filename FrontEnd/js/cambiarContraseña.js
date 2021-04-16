@@ -17,7 +17,7 @@ async function cambiarContraseña() {
     }).toString();
 
 
-    console.log("email: " + email + " encrypted: " + encryptedEmail);
+
 
     var contenido = JSON.stringify({
         "email": encryptedEmail

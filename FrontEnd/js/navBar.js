@@ -67,7 +67,7 @@ async function iniciar() {
 
             case '6': // Default
                 $("#DivContent").load("Navbars/NavBarCliente.html");
-                alert("Por favor, contactar con los administradores para que le asignen un rol");
+                //alert("Por favor, contactar con los administradores para que le asignen un rol");
                 break;
 
             default:
