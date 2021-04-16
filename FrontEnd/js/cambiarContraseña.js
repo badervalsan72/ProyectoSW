@@ -29,7 +29,6 @@ async function cambiarContraseña() {
         body: contenido,
     };
 
-
     console.log("encryptedEmail " + encryptedEmail);
 
     var resultedEmail;
@@ -40,21 +39,21 @@ async function cambiarContraseña() {
 
     console.log("despues del primer post");
 
-    console.log("resultedEmail: " + resultedEmail[0]['correoElectronico']);
+    console.log("resultedEmail: " + resultedEmail[0]['CorreoElectronico']);
 
-    if (!(resultedEmail[0]['correoElectronico'] == null)) {
+    if (!(resultedEmail[0]['CorreoElectronico'] == null)) {
 
         console.log("el correo no es nulo");
 
-        console.log("resultedEmail: " + resultedEmail[0]['correoElectronico']);
+        console.log("resultedEmail: " + resultedEmail[0]['CorreoElectronico']);
 
         //var key = CryptoJS.enc.Hex.parse('password');
 
-        var decryptedEmail = CryptoJS.AES.decrypt((resultedEmail[0]['correoElectronico']), key, {
+        var decryptedEmail = CryptoJS.AES.decrypt((resultedEmail[0]['CorreoElectronico']), key, {
             mode: CryptoJS.mode.ECB,
         }).toString(CryptoJS.enc.Latin1);
 
-        var decryptedPass = CryptoJS.AES.decrypt((resultedEmail[0]['contraseña']), key, {
+        var decryptedPass = CryptoJS.AES.decrypt((resultedEmail[0]['Contraseña']), key, {
             mode: CryptoJS.mode.ECB,
         }).toString(CryptoJS.enc.Latin1);
 
@@ -97,7 +96,7 @@ async function cambiarContraseña() {
                     .then(data => result2 = data)
                     .catch(error => console.log('error', error));
 
-                console.log("linea 88, despues del segundo post, el que hace update");
+                console.log("linea 99, despues del segundo post, el que hace update");
 
                 if (confirm("Contraseña actualizada correctamente")) {
                     window.location = '/Frontend/index.html';

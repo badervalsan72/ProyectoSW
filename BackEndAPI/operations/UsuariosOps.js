@@ -91,21 +91,18 @@ async function validarUsuarioLogin(email, passwd) {
 }
 
 async function getEmailUsuario(email) {
-    console.log("INICIANOD GET EMAIL USUARIO");
+    console.log("INICIANDO GET EMAIL USUARIO");
     try {
 
         console.log(email);
         let conn = await sql.connect(config);
 
-        let loggear = await conn.request()
+        let emailUsuario = await conn.request()
             .input('email', sql.VarChar, email)
             .query('SELECT * FROM USUARIOS WHERE CorreoElectronico = @email');
 
-        let result = loggear.recordsets;
 
-        console.log("resultado en getemailusuario: " + result);
-
-        return result
+        return emailUsuario.recordsets;
 
     } catch (error) {
         console.log(error)
@@ -123,7 +120,7 @@ async function getRolUsuario(email) {
 
         let result = sacarRol.recordset[0].CODIGOROL
 
-        return result
+        return result;
 
     } catch (error) {
         console.log(error)
@@ -141,7 +138,7 @@ async function UpdatePassUser(email, pass) {
 
         let result = update.recordset[0];
 
-        return result
+        return result;
 
     } catch (error) {
         console.log(error)
