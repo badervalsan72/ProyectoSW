@@ -1,8 +1,8 @@
 async function cambiarContraseña() {
-    email = document.getElementById("email").value;
-    oldPass = document.getElementById("oldPwd").value;
-    newPass = document.getElementById("newPwd").value;
-    repeatedNewPass = document.getElementById("repeatedNewPwd").value;
+    let email = document.getElementById("email").value;
+    let oldPass = document.getElementById("oldPwd").value;
+    let newPass = document.getElementById("newPwd").value;
+    let repeatedNewPass = document.getElementById("repeatedNewPwd").value;
 
     console.log("inicio de cambiar contraseña");
 

@@ -86,7 +86,8 @@ router.route("/Usuarios/getEmailUsuario").post((request, response) => {
 });
 
 router.route("/Usuarios/updatePassUser").post((request, response) => {
-    UsuariosOps.UpdatePassUser(request.body.email, request.body.contraseña)
+    console.log("api > UpdatePassUser > request.body.email: " + request.body.email + " request.body.password: " + request.body.password);
+    UsuariosOps.updatePassUser(request.body.email, request.body.password)
         .then((result) => {
             response.json(result);
             //Prueba para ver si llega aqui

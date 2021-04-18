@@ -23,24 +23,14 @@ async function getPaises() {
             mode: CryptoJS.mode.ECB,
         }).toString(CryptoJS.enc.Latin1);
 
-        console.log("Original: " + codigoTemp + " Decriptado: " + codigoPais);
-
         var nombrePais = CryptoJS.AES.decrypt((result[i]['Nombre']), key, {
             mode: CryptoJS.mode.ECB,
         }).toString(CryptoJS.enc.Latin1);
 
-        /* 
-        var imgPais = CryptoJS.AES.decrypt((result[0]['Nombre']), key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString(CryptoJS.enc.Latin1);
-        
-        var imgPais = CryptoJS.AES.decrypt(localStorage.getItem("imagen"), key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString(CryptoJS.enc.Latin1);
 
-        */
+        var imgPais = (result[i]['ImgPais']);
 
-        var imgPais = (result[i]['imgPais']);
+
 
         td1.appendChild(document.createTextNode(codigoPais));
         tr.appendChild(td1);

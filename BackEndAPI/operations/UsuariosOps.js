@@ -127,24 +127,21 @@ async function getRolUsuario(email) {
     }
 }
 
-async function UpdatePassUser(email, pass) {
+async function updatePassUser(email, password) {
+    console.log("UsuariosOps > updatePassUser > Email: " + email + " password: " + password)
     try {
-        let conn = await sql.connect(config);
-
-        let update = await conn.request()
+        let pool = await sql.connect(config);
+        let updatePass = await pool.request()
             .input('email', sql.VarChar, email)
-            .input('password', sql.Varchar, pass)
-            .query('Update usuarios set Contraseña = @password where CorreoElectronico = @email');
+            .input('password', sql.VarChar, password)
+            .query('UPDATE USUARIOS SET Contraseña = @password WHERE CorreoElectronico = @email');
+        return updatePass.recordsets
+    } catch (err) {
 
-        let result = update.recordset[0];
-
-        return result;
-
-    } catch (error) {
-        console.log(error)
+        console.log('Error');
+        console.log(err);
     }
 }
-
 
 module.exports = {
     getUsuarios: getUsuarios,
@@ -154,5 +151,5 @@ module.exports = {
     validarUsuarioLogin: validarUsuarioLogin,
     getRolUsuario: getRolUsuario,
     getEmailUsuario: getEmailUsuario,
-    UpdatePassUser: UpdatePassUser
+    updatePassUser: updatePassUser
 }
