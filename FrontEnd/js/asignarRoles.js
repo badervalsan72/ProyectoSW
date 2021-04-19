@@ -35,7 +35,7 @@ async function asignarRoles() {
         var att_input_type = document.createAttribute("type");
         att_input_type.value = "checkbox";
         input.setAttributeNode(att_input_type);
-        
+
 
         tbl.appendChild(tr);
 
