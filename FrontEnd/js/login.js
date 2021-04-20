@@ -46,12 +46,6 @@ async function loginUser() {
         window.location = '/Frontend/index.html';
 
     } else {
-        let emailtest = CryptoJS.AES.encrypt("hola", key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString();
-        let passtest = CryptoJS.AES.encrypt("hola", key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString();
-        //alert('hola 1: ' + emailtest + ' \n hola 2: ' + passtest);
+        alert("usuario o contraseña incorrectos. "); 
     }
 }
