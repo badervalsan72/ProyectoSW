@@ -47,16 +47,9 @@ async function asignarRoles() {
         att_input_id.value = usernameEnc; 
         input.setAttributeNode(att_input_id);
 
-
-
-        var labelInput = document.createElement("label");
-        var att_labelInput_for = document.createAttribute("for");
-        att_labelInput_for.value = usernameEnc; 
-        labelInput.setAttributeNode(att_labelInput_for); 
-
-        labelInput.appendChild(document.createTextNode("editar")); 
-
-        input.appendChild(labelInput); 
+        var att_input_class = document.createAttribute("class");
+        att_input_class.value = "inputCheckbox";
+        input.setAttributeNode(att_input_class); 
 
         td3.appendChild(input); 
         tr.appendChild(td3); 
@@ -65,6 +58,84 @@ async function asignarRoles() {
 
 
     }
+}
+
+async function updateRolesUsers() {
+    let users = document.getElementsByName("usersCheck"); 
+    let usersChecked = []
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].checked) {
+            usersChecked.push((users[i].id).toString()); 
+        }
+
+    } 
+
+
+
+    var roles = document.getElementsByName("radioroles");
+    var selectedRol = null;
+
+    for (let i = 0; i < roles.length; i++) {
+        if(roles[i].checked) { 
+            selectedRol = roles[i].value;
+        }
+    }
+
+    if (selectedRol == null) {
+        alert("por favor seleccione un rol. "); 
+        return; 
+
+    }
+
+    if (usersChecked.length == 0) {
+        alert("por favor seleccione al menos un usuario. "); 
+    }
+    else { 
+        // hacer update 
+
+        var key = CryptoJS.enc.Hex.parse('password');
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        
+        
+        for (let i = 0; i < usersChecked.length; i++) {
+            
+            
+            
+            
+            var contenido = JSON.stringify({
+                "user": usersChecked[i], 
+                "rol": selectedRol
+    
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: contenido,
+        
+            };
+            
+            await fetch('http://localhost:8090/api/Usuarios/updateRol', requestOptions)
+            .then(response => response.json())
+            
+            
+            
+        }
+        
+       
+
+        alert("cambio de roles exitoso. "); 
+        window.location = "/Frontend/asignarroles.html"; 
+
+    }
+    
+
+    
+    
+    
+    // console.log(usersChecked.toString()); 
+
 }
 
 window.onload = asignarRoles; 

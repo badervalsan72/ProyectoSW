@@ -143,6 +143,23 @@ async function updatePassUser(email, password) {
     }
 }
 
+async function updateRol(user, rol) {
+    
+    try {
+        let pool = await sql.connect(config);
+        let updateRoles = await pool.request()
+            .input('user', sql.VarChar, user)
+            .input('rol', sql.Int, rol)
+            .query('UPDATE USUARIOS SET CodigoRol = @rol WHERE NombreUsuario = @user');  
+            // .query('SELECT * FROM USUARIOS WHERE NombreUsuario = @user');  
+        return updateRoles.recordsets
+    } catch (err) {
+
+        console.log('Error');
+        console.log(err);
+    }
+}
+
 module.exports = {
     getUsuarios: getUsuarios,
     getUsuario: getUsuario,
@@ -151,5 +168,6 @@ module.exports = {
     validarUsuarioLogin: validarUsuarioLogin,
     getRolUsuario: getRolUsuario,
     getEmailUsuario: getEmailUsuario,
-    updatePassUser: updatePassUser
+    updatePassUser: updatePassUser, 
+    updateRol: updateRol
 }

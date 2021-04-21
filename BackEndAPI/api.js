@@ -138,6 +138,18 @@ router.route("/Usuarios/validarUsuarioLogin").post((request, response) => {
         });
 });
 
+
+router.route("/Usuarios/updateRol").post((request, response) => {
+    UsuariosOps.updateRol(request.body.user, request.body.rol)
+        .then((result) => {
+            response.json(result);
+            //Prueba para ver si llega aqui
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
 router.route("/Usuarios/getRolUsuario").post((request, response) => {
     UsuariosOps.getRolUsuario(request.body.email)
         .then((result) => {

@@ -2390,3 +2390,10 @@ center {
     opacity: 1;
     font-size: small;
   }
+
+
+.inputCheckbox {
+    position: relative !important; 
+    left: 0px !important; 
+    opacity: 100 !important; 
+}

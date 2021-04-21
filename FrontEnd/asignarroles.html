@@ -15,23 +15,6 @@
     <link href="css/flexslider.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
 
-    <style> 
-    [type="checkbox"] {
-        position: relative;
-        padding-left: 35px;
-        cursor: pointer;
-        display: inline-block;
-        height: 25px;
-        line-height: 25px;
-        font-size: 1rem;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -ms-user-select: none;
-    }
-
-    </style> 
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -140,17 +123,17 @@
                                     <br>
 
                                     <div>
-                                        <input type="checkbox" id="cliente" name="radioroles" value="6">
+                                        <input type="radio" id="cliente" name="radioroles" value="6">
                                         <label for="cliente" style="font-size: large;" class="decorator">Cliente</label>
                                     </div>
 
                                     <br>
-
-                                    <button class="decobutton decobutton1">Actualizar Roles</button>
-
                                 </form>
-
                                 <!-- Fin del Formulario  -->
+                                
+                                <button class="decobutton decobutton1" onclick="updateRolesUsers()">Actualizar Roles</button>
+                               
+                                
 
                             </div>
                         </div>
@@ -259,7 +242,7 @@
 <script src="js/custom.js"></script>
 <script src="js/navBar.js"></script>
 <script src="js/asignarRoles.js"></script>
-<script src=”http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 </body>
 </html>
