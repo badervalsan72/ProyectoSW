@@ -3,6 +3,8 @@ const paisesOps = require("./operations/PaisesOps");
 const UsuariosOps = require("./operations/UsuariosOps");
 const RolesOps = require("./operations/RolesOps");
 const ConsecutivosOps = require("./operations/ConsecutivosOps");
+const AerolineasOps = require("./operations/AerolineasOps");
+const PuertasOps = require("./operations/PuertasOps");
 
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -11,6 +13,7 @@ const { response } = require("express");
 var app = express();
 var router = express.Router();
 const session = require("express-session");
+const AerolineasEspOps = require("./operations/AerolineasEspOps");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -229,6 +232,17 @@ router.route("/updateConsecutivo").post((request, response) => {
             request.body.rangoInicial,
             request.body.rangoFinal
         )
+        .then((result) => {
+            response.json(result[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+
+router.route("/getAerolineas").post((request, response) => {
+    AerolineasOps.addAerolinea(request.body.codigo)
         .then((result) => {
             response.json(result[0]);
         })
