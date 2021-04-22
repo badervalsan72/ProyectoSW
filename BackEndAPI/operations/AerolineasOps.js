@@ -6,10 +6,10 @@ async function addAerolinea(codigo, nombreAgencia, imgAgencia, paisOrigen) {
     try {
         let pool = await sql.connect(config);
         let insertAerolinea = await pool.request()
-            .input('Codigo', sql.VarChar, Aerolineas.codigo)
-            .input('nombreAgencia', sql.VarChar, Aerolineas.nombreAgencia)
-            .input('CodigoAeropuerto', sql.VarChar, Aerolineas.imgAgencia)
-            .input('PaisOrigen', sql.VarChar, Aerolineas.paisOrigen)
+            .input('Codigo', sql.VarChar, codigo)
+            .input('nombreAgencia', sql.VarChar, nombreAgencia)
+            .input('CodigoAeropuerto', sql.VarChar, imgAgencia)
+            .input('PaisOrigen', sql.VarChar, paisOrigen)
             .query('INSERT INTO Aerolineas VALUES (@Codigo, @nombreAgencia, @NombreAgencia, @PaisOrigen)')
         return insertAerolinea.recordsets
     } catch (error) {
@@ -25,26 +25,26 @@ async function getAerolinea(codigo) {
         let pool = await sql.connect(config);
         let pais = await pool.request()
             .input('codigo', sql.VarChar, codigo)
-            .input('nombre', sql.VarChar, nombre)
-            .query("SELECT COUNT(*) as CANTPAISES from Paises where Codigo = @codigo OR Nombre = @nombre");
-        return pais.recordset[0].CANTPAISES;
+            .query("SELECT * from AEROLINEAS where Codigo = @codigo");
+        return pais.recordset[0];
     } catch (error) {
         console.log(error);
     }
-
 }
 
 
 //falta un metodo que permita pedir todas las aerolineas
-
-
-
-
-//falta un metodo para hacer update a una aerolinea en especifico
-
-
+async function getAerolineas() {
+    try {
+        let pool = await sql.connect(config);
+        let aerolineas = await pool.request().query("SELECT * FROM AEROLINEAS");
+        return aerolineas.recordsets;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 module.exports = {
-    addAerolinea = addAerolinea,
-    getAerolinea = getAerolinea
+    addAerolinea: addAerolinea,
+    getAerolinea: getAerolinea
 }

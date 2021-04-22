@@ -2306,8 +2306,8 @@ center {
     font-size: medium;
     border-collapse: collapse;
     table-layout: fixed;
-    width: 600px;
-    height: 200px;
+    width: auto;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -2328,6 +2328,7 @@ center {
     background-color: #F4783B;
     color: white;
 }
+
 
 /* Table design for llegadasvuelos.html */
 
@@ -2357,6 +2358,7 @@ center {
     color: white;
 }
 
+
 /* Table design for salidasvuelos.html */
 
 #salida {
@@ -2385,15 +2387,75 @@ center {
     color: white;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #F4783B;
     opacity: 1;
     font-size: small;
-  }
-
+}
 
 .inputCheckbox {
-    position: relative !important; 
-    left: 0px !important; 
-    opacity: 100 !important; 
+    position: relative !important;
+    left: 0px !important;
+    opacity: 100 !important;
+}
+
+
+/* Table design for puertasaeropuerto.html */
+
+#puertasTable {
+    font-size: medium;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 600px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+#puertasTable td,
+#puertasTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#puertasTable tr {
+    background-color: #f2f2f2;
+}
+
+#puertasTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #F4783B;
+    color: white;
+}
+
+
+/* Table design for aerolineas.html */
+
+#aerolineas {
+    font-size: medium;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+#aerolineas td,
+#aerolineas th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#aerolineas tr {
+    background-color: #f2f2f2;
+}
+
+#aerolineas th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #F4783B;
+    color: white;
 }

@@ -241,16 +241,28 @@ router.route("/updateConsecutivo").post((request, response) => {
 });
 
 
-router.route("/getAerolineas").post((request, response) => {
-    AerolineasOps.addAerolinea(request.body.codigo)
+router.route("/getAerolineas").get((request, response) => {
+    AerolineasOps.getAerolineas().then((result) => {
+        response.json(result[0]);
+    });
+});
+
+router.route("/getAerolinea").post((request, response) => {
+    AerolineasOps.getAerolineas(request.body.codigo)
         .then((result) => {
             response.json(result[0]);
-        })
-        .catch((err) => {
-            console.log(err);
         });
 });
 
+router.route("/addAerolinea").post((request, responde) => {
+    AerolineasOps.addAerolinea(request.body.codigo, request.body.)
+});
+
+router.route("/getPuertas").get((request, response) => {
+    PuertasOps.getPuertas().then((result) => {
+        response.json(result[0]);
+    });
+});
 
 
 var port = process.env.PORT || 8090;

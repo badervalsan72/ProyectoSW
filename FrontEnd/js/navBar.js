@@ -29,15 +29,14 @@ const getRol = async function(TheUrl, email) {
 
 async function iniciar() {
 
-
     if (sessionStorage.getItem('email') == null) {
 
         // nueva sesion sin usuario 
-        $("#DivContent").load("Navbars/NavBarGeneral.html");
+        $("#DivContent").load("/FrontEnd/NavBars/NavBarGeneral.html");
 
 
     }
-    // $("#DivContent").load("Navbars/NavBarAdministrador.html");
+    // $("#DivContent").load("/FrontEnd/NavBars/NavBarAdministrador.html");
     else {
         let result = await getRol('http://localhost:8090/api/Usuarios/getRolUsuario', sessionStorage.getItem('email'))
             .catch(error => console.log('error', error))
@@ -45,33 +44,33 @@ async function iniciar() {
         switch (result) {
 
             case '1': // Administrador 
-                $("#DivContent").load("Navbars/NavBarAdministrador.html");
+                $("#DivContent").load("/FrontEnd/NavBars/NavBarAdministrador.html");
 
                 break;
 
             case '2': // Seguridad
-                $("#DivContent").load("Navbars/NavBarSeguridad.html");
+                $("#DivContent").load("/FrontEnd/NavBars/NavBarSeguridad.html");
                 break;
 
             case '3': // Consecutivo 
-                $("#DivContent").load("Navbars/NavBarAdministrador.html");
+                $("#DivContent").load("/FrontEnd/NavBars/NavBarAdministrador.html");
                 break;
 
             case '4': // Mantenimiento 
-                $("#DivContent").load("Navbars/NavBarGeneral.html");
+                $("#DivContent").load("/FrontEnd/NavBars/NavBarGeneral.html");
                 break;
 
             case '5': // Consulta 
-                $("#DivContent").load("Navbars/NavBarConsulta.html");
+                $("#DivContent").load("/FrontEnd/NavBars/NavBarConsulta.html");
                 break;
 
             case '6': // Default
-                $("#DivContent").load("Navbars/NavBarCliente.html");
+                $("#DivContent").load("/FrontEnd/NavBars/NavBarCliente.html");
                 //alert("Por favor, contactar con los administradores para que le asignen un rol");
                 break;
 
             default:
-
+                console.log("huge error");
                 break;
         }
 
