@@ -5,7 +5,7 @@ async function getAerolineas() {
         .then(data => result = data)
         .catch(error => console.log('error', error))
 
-    var tbl = document.getElementById('puertasTable');
+    var tbl = document.getElementById('aerolineas');
     var key = CryptoJS.enc.Hex.parse('password');
 
     for (var i = 0; i < result.length; i++) {
@@ -19,49 +19,34 @@ async function getAerolineas() {
 
         var codigoTemp = result[i]['Codigo'];
 
-        var codigoPuerta = CryptoJS.AES.decrypt(codigoTemp, key, {
+        var codigoAerolinea = CryptoJS.AES.decrypt(codigoTemp, key, {
             mode: CryptoJS.mode.ECB,
         }).toString(CryptoJS.enc.Latin1);
 
-        var numeroPuerta = CryptoJS.AES.decrypt((result[i]['numeroPuerta']), key, {
-            mode: CryptoJS.mode.ECB,
-        }).toString(CryptoJS.enc.Latin1);
-
-
-        var codigoAeroPuerto = CryptoJS.AES.decrypt((result[i]['CodigoAeroPuerto']), key, {
+        var nombreAgencia = CryptoJS.AES.decrypt((result[i]['NombreAgencia']), key, {
             mode: CryptoJS.mode.ECB,
         }).toString(CryptoJS.enc.Latin1);
 
 
+        var mgAgencia = CryptoJS.AES.decrypt((result[i]['ImgAgencia']), key, {
+            mode: CryptoJS.mode.ECB,
+        }).toString(CryptoJS.enc.Latin1);
 
-        td1.appendChild(document.createTextNode(codigoPuerta));
+        var paisOrigen = CryptoJS.AES.decrypt((result[i]['PaisOrigen']), key, {
+            mode: CryptoJS.mode.ECB,
+        }).toString(CryptoJS.enc.Latin1);
+
+
+        td1.appendChild(document.createTextNode(codigoAerolinea));
         tr.appendChild(td1);
 
-        td2.appendChild(document.createTextNode(numeroPuerta));
+        td2.appendChild(document.createTextNode(nombreAgencia));
         tr.appendChild(td2);
 
-        td3.appendChild(document.createTextNode(codigoAeroPuerto));
+        td3.appendChild(document.createTextNode(imgAgencia));
         tr.appendChild(td3);
 
-        var att_td4_id = document.createAttribute("id");
-        att_td4_id.value = i + 1;
-        td4.setAttributeNode(att_td4_id);
-
-        var att_td4_class = document.createAttribute("class");
-        att_td4_class.value = "center";
-        td4.setAttributeNode(att_td4_class);
-
-        var btn = document.createElement('button');
-        var att_btn_class = document.createAttribute("class");
-        att_btn_class.value = 'btnDesign';
-        btn.setAttributeNode(att_btn_class);
-
-        var att_btn_onclick = document.createAttribute("onclick");
-        att_btn_onclick.value = "editarPais('" + codigoPais + "')";
-        btn.setAttributeNode(att_btn_onclick);
-
-        btn.appendChild(document.createTextNode("Editar"));
-        td4.appendChild(btn);
+        td4.appendChild(document.createTextNode(paisOrigen));
         tr.appendChild(td4);
 
         tbl.appendChild(tr);
@@ -70,12 +55,12 @@ async function getAerolineas() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    let paisesDescripcion = CryptoJS.AES.encrypt("paises", key, {
+    let aerolineasDescripcion = CryptoJS.AES.encrypt("aerolineas", key, {
         mode: CryptoJS.mode.ECB,
     }).toString();
 
     var contenido = JSON.stringify({
-        "descripcion": paisesDescripcion
+        "descripcion": aerolineasDescripcion
     });
 
     var requestOptions = {

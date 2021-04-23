@@ -27,7 +27,11 @@
         <!-- Start of the Header -->
 
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
+        <script>
+            $(function() {
+                $("#DivContent").load("Navbars/NavBarAdministrador.html");
+            });
+        </script>
 
         <div id="DivContent"></div>
 
@@ -130,10 +134,10 @@
                                     <br>
                                 </form>
                                 <!-- Fin del Formulario  -->
-                                
+
                                 <button class="decobutton decobutton1" onclick="updateRolesUsers()">Actualizar Roles</button>
-                               
-                                
+
+
 
                             </div>
                         </div>
@@ -240,7 +244,7 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/animate.js"></script> 
 <script src="js/custom.js"></script>
-<script src="js/navBar.js"></script>
+<!-- <script src="js/navBar.js"></script> --> 
 <script src="js/asignarRoles.js"></script>
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
