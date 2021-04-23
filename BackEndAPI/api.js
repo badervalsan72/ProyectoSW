@@ -255,7 +255,18 @@ router.route("/getAerolinea").post((request, response) => {
 });
 
 router.route("/addAerolinea").post((request, responde) => {
-    AerolineasOps.addAerolinea(request.body.codigo, request.body.)
+    AerolineasOps.addAerolinea(
+            request.body.codigo,
+            request.body.nombreAgencia,
+            request.body.ImgAgencia,
+            request.body.PaisOrigen
+        )
+        .then((result) => {
+            response.json(result[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 });
 
 router.route("/getPuertas").get((request, response) => {
